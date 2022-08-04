@@ -1,9 +1,12 @@
 import React from 'react'
 
-const Mint = () => {
+const mint = () => {
   return (
-    <div>Mint</div>
+    <>
+        <section className="h-screen"> Mintter</section>
+        <section id="mint-nft" className="h-screen"> mint-nft</section>
+    </>
   )
 }
 
-export default Mint
+export default mint

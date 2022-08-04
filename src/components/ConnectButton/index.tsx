@@ -4,11 +4,11 @@ import {
     useConnect, 
     useAccount,
     useDisconnect, 
-    useEnsAvatar, 
+    useEnsAvatar,
     useEnsName,
     chain
 } from "wagmi"
-import Image from 'next/image'
+import { shortenAddress } from '../../functions/format'
 
 
 const ConnectButton = () => {
@@ -37,14 +37,13 @@ const ConnectButton = () => {
         <>
           {isConnected ? 
           <div>
-             <div>{address}</div>
-             <button onClick={() => {disconnect()}}>Disconnect</button>
+             <button className="bg-black py-4 px-4 text-white">{address?.substring(0, 6)}...{address?.substring(42, 38)}...{address?.substring(42-4)}</button>
           </div>:
           <div className="">
           <button
             type="button"
             onClick={openModal}
-            className="rounded-md bg-red-500 px-4 py-2 text-sm font-bold text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+            className="rounded-md bg-red-500 px-4 py-4 text-sm font-bold text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
           >
             Connect Wallet
           </button>
