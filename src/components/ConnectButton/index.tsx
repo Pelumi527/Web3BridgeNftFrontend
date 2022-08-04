@@ -5,7 +5,8 @@ import {
     useAccount,
     useDisconnect, 
     useEnsAvatar, 
-    useEnsName
+    useEnsName,
+    chain
 } from "wagmi"
 import Image from 'next/image'
 
@@ -15,9 +16,9 @@ const ConnectButton = () => {
     const { data: ensAvatar } = useEnsAvatar({ addressOrName: address })
     const { data: ensName } = useEnsName({ address })
     const { disconnect } = useDisconnect()
-    const { connect, connectors, error, isLoading, pendingConnector } =
-    useConnect()
-
+    const {connect, connectors, error, isLoading, pendingConnector } = useConnect({chainId: chain.polygonMumbai.id})
+    
+ 
     const [isOpen, setIsOpen] = useState(true)
 
     function closeModal() {
