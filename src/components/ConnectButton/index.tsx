@@ -1,4 +1,4 @@
-import React, {Fragment, useState} from 'react'
+import React, {Fragment, useState, useEffect} from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import {
     useConnect, 
@@ -13,13 +13,13 @@ import Image from 'next/image'
 
 const ConnectButton = () => {
     const { address, connector, isConnected } = useAccount()
-    const { data: ensAvatar } = useEnsAvatar({ addressOrName: address })
-    const { data: ensName } = useEnsName({ address })
+    // const { data: ensAvatar } = useEnsAvatar({ addressOrName: address })
+    // const { data: ensName } = useEnsName({ address })
     const { disconnect } = useDisconnect()
     const {connect, connectors, error, isLoading, pendingConnector } = useConnect({chainId: chain.polygonMumbai.id})
     
  
-    const [isOpen, setIsOpen] = useState(true)
+    const [isOpen, setIsOpen] = useState(false)
 
     function closeModal() {
         setIsOpen(false)
@@ -28,11 +28,16 @@ const ConnectButton = () => {
       function openModal() {
         setIsOpen(true)
       }
+
+      useEffect(() => {
+        setIsOpen(false)
+      }, [])
+      
       return (
         <>
           {isConnected ? 
           <div>
-             <div>{ensName ? `${ensName} (${address})` : address}</div>
+             <div>{address}</div>
              <button onClick={() => {disconnect()}}>Disconnect</button>
           </div>:
           <div className="">
