@@ -6,7 +6,7 @@ const mint = () => {
       {/* <section className="h-screen"> Mintter</section> */}
       <section
         id="mint-nft"
-        className="bg-[#fff] mt-32 container rounded-lg mx-auto"
+        className="bg-[#fff] mt-32 p-4 container rounded-lg mx-auto"
       >
         <div className="p-6  grid grid-cols-2">
           <div className="bg-[#FDF3FC] p-4 container mx-auto flex items-center ">
