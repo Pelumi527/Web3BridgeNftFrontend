@@ -1,3 +1,44 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+body {
+    font-family: "PT Serif Caption", serif;
+  }
+  
+.mint-text{
+font-size: 28px;
+font-weight: 400;
+padding: 2rem;
+line-height: 37px;
+font-family: inherit;
+color:  rgba(36, 36, 36, 0.71);;
+}
+
+.btn-common{
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 53px;
+  color: rgba(36, 36, 36, 0.71);
+}
+
+.mint-count{
+  color: #0F0F0F;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.mint{
+font-weight: 400;
+font-size: 20px;
+line-height: 26px;
+}
+
+.mint-price{
+font-weight: 400;
+font-size: 20px;
+line-height: 26px;
+color: rgba(36, 36, 36, 0.71);
+}
+.mint-sub{
+  color: #0F0F0F;
+}
