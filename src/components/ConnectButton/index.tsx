@@ -1,5 +1,5 @@
 import React, {Fragment, useState, useEffect} from 'react'
-import { Dialog, Transition } from '@headlessui/react'
+import { Dialog, Transition, Menu} from '@headlessui/react'
 import {
     useConnect, 
     useAccount,
@@ -32,11 +32,46 @@ const ConnectButton = () => {
         setIsOpen(false)
       }, [])
       
+      
       return (
         <>
           {isConnected ? 
           <div>
-             <button className="px-4 py-4 text-white bg-black">{address?.substring(0, 6)}...{address?.substring(42, 38)}...{address?.substring(42-4)}</button>
+             <div>
+               <Menu as="div" className="relative inline-block text-left">
+                <div>
+                  <Menu.Button className="px-4 py-4 text-white bg-black">
+                    {address?.substring(0, 6)}...{address?.substring(42, 38)}...{address?.substring(42-4)}
+                  </Menu.Button>
+                </div>
+                <Transition
+                  as={Fragment}
+                  enter="transition ease-out duration-100"
+                  enterFrom="transform opacity-0 scale-95"
+                  enterTo="transform opacity-100 scale-100"
+                  leave="transition ease-in duration-75"
+                  leaveFrom="transform opacity-100 scale-100"
+                  leaveTo="transform opacity-0 scale-95"
+                >
+                <Menu.Items className="absolute right-0 w-56 mt-2 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                  <div className="px-1 py-1 ">
+                    <Menu.Item>
+                    {({ active }) => (
+                      <button
+                        className={`${
+                          active ? 'bg-black text-white' : 'text-gray-900'
+                        } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                        onClick={() => disconnect()}
+                      >
+                        Disconnect
+                      </button>
+                    )}
+                  </Menu.Item>
+                </div>
+              </Menu.Items>
+              </Transition>
+              </Menu>
+           </div>
           </div>:
           <div className="">
           <button
@@ -47,7 +82,6 @@ const ConnectButton = () => {
             Connect Wallet
           </button>
         </div>}
-    
           <Transition appear show={isOpen} as={Fragment}>
             <Dialog as="div" className="relative z-10" onClose={closeModal}>
               <Transition.Child
@@ -94,7 +128,13 @@ const ConnectButton = () => {
                             <button className="px-4 py-4 m-4 text-base text-white bg-red-400 rounded-md hover:bg-opacity-90"
                                 disabled={!connector.ready}
                                 key={connector.id}
-                                onClick={() => {connect({connector})}}
+                                onClick={
+                                 async () => {
+                                  connect({connector})
+                                  closeModal()
+
+                                 }
+                                }
                                 type="button"
                             >
                                 {connector.name}
