@@ -1,12 +1,14 @@
 import React from 'react'
 import Header from '../components/Header'
 import Main from '../components/Main'
+import Footer from '../components/Footer'
 
 const Layout = ({children}:any) => {
   return (
-    <div className="flex flex-col w-full h-screen items-center transition duration-300 ease-in-out delay-150 bg-pink-100">
+    <div className="flex flex-col items-center w-full h-screen transition duration-300 ease-in-out delay-150">
         <Header />
         <Main>{children}</Main>
+        <Footer/>
     </div>
   )
 }

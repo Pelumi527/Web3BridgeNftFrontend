@@ -1,14 +1,13 @@
 import React from "react";
 
-const mint = () => {
+const Mint = () => {
   return (
     <>
-      {/* <section className="h-screen"> Mintter</section> */}
       <section
         id="mint-nft"
         className="bg-[#fff] mt-32 p-4 container rounded-lg mx-auto"
       >
-        <div className="p-6  grid grid-cols-2">
+        <div className="grid grid-cols-2 p-6">
           <div className="bg-[#FDF3FC] p-4 container mx-auto flex items-center ">
             <p className="mint-text">
               Kranos NFT some text should actually be here, but i am currently
@@ -28,16 +27,16 @@ const mint = () => {
             <div className="flex justify-center">
               <img src="/images/nft.svg" alt="nft_pic" />
             </div>
-            <div className="flex  w-2/3 mx-auto mb-8 justify-between">
+            <div className="flex justify-between w-2/3 mx-auto mb-8">
               <button
-                className="bg-red-400 w-1/4  bg-[#C4C4C4] btn-common rounded-sm"
+                className="w-1/4  bg-[#C4C4C4] btn-common rounded-sm"
               >
                 -
               </button>
               <button className="bg-[#F02A2A]  font-mormal  text-white w-1/3 mint rounded-sm">
                 Mint
               </button>
-              <button className="bg-red-400 w-1/4  bg-[#C4C4C4] btn-common rounded-sm">+</button>
+              <button className="w-1/4  bg-[#C4C4C4] btn-common rounded-sm">+</button>
             </div>
             <div className=" bg-[#FDF3FC] flex justify-between items-center p-4 w-2/3 mx-auto">
               <h5 className="mint-price">
@@ -52,4 +51,4 @@ const mint = () => {
   );
 };
 
-export default mint;
+export default Mint;

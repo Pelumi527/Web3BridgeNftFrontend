@@ -8,7 +8,6 @@ import {
     useEnsName,
     chain
 } from "wagmi"
-import { shortenAddress } from '../../functions/format'
 
 
 const ConnectButton = () => {
@@ -37,13 +36,13 @@ const ConnectButton = () => {
         <>
           {isConnected ? 
           <div>
-             <button className="bg-black py-4 px-4 text-white">{address?.substring(0, 6)}...{address?.substring(42, 38)}...{address?.substring(42-4)}</button>
+             <button className="px-4 py-4 text-white bg-black">{address?.substring(0, 6)}...{address?.substring(42, 38)}...{address?.substring(42-4)}</button>
           </div>:
           <div className="">
           <button
             type="button"
             onClick={openModal}
-            className="rounded-md bg-red-500 px-4 py-4 text-sm font-bold text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+            className="px-4 py-4 text-sm font-bold text-white bg-red-500 rounded-md hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
           >
             Connect Wallet
           </button>
@@ -64,7 +63,7 @@ const ConnectButton = () => {
               </Transition.Child>
     
               <div className="fixed inset-0 overflow-y-auto">
-                <div className="flex min-h-full items-center justify-center p-4 text-center">
+                <div className="flex items-center justify-center min-h-full p-4 text-center">
                   <Transition.Child
                     as={Fragment}
                     enter="ease-out duration-300"
@@ -74,8 +73,8 @@ const ConnectButton = () => {
                     leaveFrom="opacity-100 scale-100"
                     leaveTo="opacity-0 scale-95"
                   >
-                    <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
-                      <div className="mt-4 flex items-center justify-between">
+                    <Dialog.Panel className="w-full max-w-md p-6 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
+                      <div className="flex items-center justify-between mt-4">
                       <Dialog.Title
                         as="h3"
                         className="text-lg font-medium leading-6 text-gray-900"
@@ -84,15 +83,15 @@ const ConnectButton = () => {
                       </Dialog.Title>
                         <button
                           type="button"
-                          className="justify-center content-center place-content-center rounded-md border border-transparent bg-pink-100 px-4 py-2 text-sm font-medium text-black-900 hover:bg-pink-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-500 focus-visible:ring-offset-2"
+                          className="content-center justify-center px-4 py-2 text-sm font-medium bg-pink-100 border border-transparent rounded-md place-content-center text-black-900 hover:bg-pink-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-500 focus-visible:ring-offset-2"
                           onClick={closeModal}
                         >
                           Close
                         </button>
                       </div>
-                      <div className="mt-2 flex flex-col">
+                      <div className="flex flex-col mt-2">
                         {connectors.map((connector) => (
-                            <button className="px-4 py-4 m-4 text-base rounded-md bg-red-400 text-white hover:bg-opacity-90"
+                            <button className="px-4 py-4 m-4 text-base text-white bg-red-400 rounded-md hover:bg-opacity-90"
                                 disabled={!connector.ready}
                                 key={connector.id}
                                 onClick={() => {connect({connector})}}
