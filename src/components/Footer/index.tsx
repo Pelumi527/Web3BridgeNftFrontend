@@ -8,9 +8,8 @@ const Footer = () => {
         <div className="container grid grid-cols-4 gap-10 px-32 py-8">
             <div>
                 <Link href='/home'>
-                    <Image src="/images/logo.svg" height={45} width={45} alt="Web3bridge-logo"/>
+                   <a> <Image src="/images/logo.svg" height={45} width={45} alt="Web3bridge-logo"/></a>
                 </Link>
-
             </div>
             <div>
                 <h1 className="py-4 text-lg font-bold">Web3Bridge</h1>

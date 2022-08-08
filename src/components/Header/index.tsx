@@ -12,7 +12,7 @@ const Header = () => {
   return (
     <div className="box-border fixed z-50 flex items-center justify-between w-full px-10 py-6 mx-auto font-bold bg-pink-100">
       <Link href='/home'>
-        <Image src="/images/logo.svg" height={45} width={45} alt="Web3bridge-logo"/>
+        <a> <Image src="/images/logo.svg" height={45} width={45} alt="Web3bridge-logo"/></a>
       </Link>
       <div className="flex items-center justify-center">
           <Link className="no-underline" href='/mint'>
@@ -20,7 +20,6 @@ const Header = () => {
               Mint NFT
             </button>
           </Link>
-        
         <ConnectButton />
       </div>
     </div>

@@ -14,14 +14,15 @@ import { MetaMaskConnector } from 'wagmi/connectors/metaMask'
 import { WalletConnectConnector } from 'wagmi/connectors/walletConnect'
 
 const {chains, webSocketProvider, provider} = configureChains(
-    [chain.polygon, chain.polygonMumbai], 
+    defaultChains,
     [alchemyProvider({apiKey:"_ksGHHmKpnCFKcMiS-TMvCPrsDfRrhCk"}), publicProvider()] 
 )
+
 
 const client = createClient({
     autoConnect:true,
     connectors:[
-        new MetaMaskConnector({chains:[chain.polygon, chain.polygonMumbai]}),
+        new MetaMaskConnector({chains}),
         new WalletConnectConnector({
             chains,
             options:{
@@ -29,7 +30,7 @@ const client = createClient({
             }
         }),
         new InjectedConnector({
-            chains : [chain.polygon, chain.polygonMumbai],
+            chains,
             options:{
                 name:'Injected',
                 shimDisconnect:true,
