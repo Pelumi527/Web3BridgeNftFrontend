@@ -27,7 +27,7 @@ const Home = () => {
   }
   return (
     <section className="w-full mt-20"> 
-      <div className="grid w-full h-full grid-cols-2 px-12 bg-pink-100">
+      <div className="grid w-full h-full grid-cols-1 px-12 bg-pink-100 md:grid-cols-2">
         <div className="flex flex-col justify-center px-20">
             <h1 className="mb-8 text-3xl font-bold text-red-500 ">Collecting digital rare arts for future investment scheme</h1>
             <p className="mb-8 text-xl">
@@ -63,7 +63,8 @@ const Home = () => {
       </div>
       <div className="px-32 py-10 bg-pink-100">
         <h1 className="text-xl text-[#F02A2A] font-extrabold">Roadmap</h1>
-        <div className="grid grid-cols-5 gap-20 mt-8 ">
+        <div className="grid grid-cols-4 md:grid-cols-1">
+        <div className="grid gap-10 mt-8 md:grid-cols-5 md:gap-20 ">
           <p>
             Contracting Web3bridge campus building project in Lagos Nigeria
             to allow for intake of two hundred (200) developers 
@@ -81,8 +82,8 @@ const Home = () => {
             Opening cohort VIII
           </p>
         </div>
-        <div className="grid grid-cols-3 gap-10 mt-6">
-          <div className="flex justify-between col-span-2">
+        <div className="grid md:gap-10 md:mt-6 md:grid-cols-3">
+          <div className="flex flex-col justify-between col-span-2 md:flex-row">
             <Image  src="/images/Group 4.svg" width="56px" height="56px" alt=''/>
             <Image  src="/images/Group 5.svg" width="56px" height="56px" alt=''/>
             <Image  src="/images/Group 6.svg" width="56px" height="56px" alt=''/>
@@ -91,13 +92,13 @@ const Home = () => {
             <Image  src="/images/Group 9.svg" width="56px" height="56px" alt=''/>
             <Image  src="/images/Group 10.svg" width="56px" height="56px" alt=''/>
           </div>
-          <div className="flex justify-evenly"> 
+          <div className="flex flex-col items-center md:flex-row justify-evenly"> 
             <Image  src="/images/Group 11.svg" width="56px" height="56px" alt=''/>
             <Image  src="/images/Group 12.svg" width="56px" height="56px" alt=''/>
           </div>
         </div>
-        <div className="grid grid-cols-3">
-            <div className="flex justify-between col-span-2">
+        <div className="grid md:grid-cols-3">
+            <div className="flex flex-col justify-between col-span-2 md:flex-row">
               <p className="mt-10 px-15">
                   Graduating over 400 developers (web2 & web3) from cohort VII
               </p>
@@ -114,20 +115,22 @@ const Home = () => {
             </p>
           </div>
         </div>
-        <div className="grid grid-cols-3 gap-10">
-            <div className="flex flex-col items-center justify-center col-span-2 py-10 border-r-4 border-b-4 border-l-4 border-[#F02A2A] border-dashed">
+        <div className="grid grid-rows-3 gap-10 md:grid-rows-none md:grid-cols-3">
+            <div className="flex flex-col items-center justify-center row-span-2 md:row-auto md:col-span-2 py-10 border-t-4 md:border-t-0 border-r-4 border-b-4 md:border-l-4 border-[#F02A2A] border-dashed">
                 <h1>Q4</h1>
                 <p>2022</p>
             </div>
-            <div className="flex flex-col items-center justify-center py-10 border-r-4 border-b-4 border-l-4 border-[#F02A2A] border-dashed">
+            <div className="flex flex-col items-center justify-center py-10 border-t-4 md:border-t-0 border-r-4 border-b-4 md:border-l-4 border-[#F02A2A] border-dashed">
                 <h1>Q1</h1>
                 <p>2023</p>
             </div>
         </div>
+
+        </div>
       </div>
       <div className="px-32 py-10">
         <h1 className="text-xl text-[#F02A2A] font-extrabold">Utility</h1>
-        <div className="grid grid-cols-4 mt-8">
+        <div className="grid grid-cols-1 gap-10 mt-8 md:grid-cols-4">
           <div className="px-10 py-10 bg-[#281F950D] rounded-md">
             <h1 className="text-xl text-center text-[#0F8552] font-extrabold">100%</h1>
             <p>
