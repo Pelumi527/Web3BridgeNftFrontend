@@ -5,10 +5,10 @@ const Mint = () => {
     <>
       <section
         id="mint-nft"
-        className="bg-[#fff] mt-32 p-4 container rounded-lg mx-auto"
+        className="bg-[#fff] mt-32 md:p-4 lg:p-4 mb-12 container rounded-lg mx-auto"
       >
-        <div className="grid grid-cols-2 p-6">
-          <div className="bg-[#FDF3FC] p-4 container mx-auto flex items-center ">
+        <div className="md:grid md:grid-cols-2 lg:grid lg:grid-cols-2 md:p-6 lg:p-6">
+          <div className="mb-12 md:mb-0 lg:mb-0 md:bg-[#FDF3FC] lg:bg-[#FDF3FC] md:p-4 lg:p-4 container md:mx-auto md:flex lg:mx-auto lg:flex items-center ">
             <p className="mint-text">
               Kranos NFT some text should actually be here, but i am currently
               out of content at the moment, please help me out (sobs) some text
@@ -38,7 +38,7 @@ const Mint = () => {
               </button>
               <button className="w-1/4  bg-[#C4C4C4] btn-common rounded-sm">+</button>
             </div>
-            <div className=" bg-[#FDF3FC] flex justify-between items-center p-4 w-2/3 mx-auto">
+            <div className=" bg-[#FDF3FC] flex justify-between items-center p-4 w-5/6 md:w-2/3 lg:w-2/3 mx-auto">
               <h5 className="mint-price">
                 Price: <span className="font-bold mint-sub">$700</span>
               </h5>

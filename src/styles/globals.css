@@ -49,3 +49,17 @@ color: rgba(36, 36, 36, 0.71);
 .mint-sub{
   color: #0F0F0F;
 }
+
+
+@media screen and (max-width:475px) {
+  .mint-text{
+    font-size: 12px;
+    padding: 1rem;
+    line-height: 13.25px;
+  }
+
+  .btn-common{
+    font-size: 20px;
+    line-height: 26.5px;
+  }
+}
