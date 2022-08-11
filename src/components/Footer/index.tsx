@@ -10,6 +10,7 @@ const Footer = () => {
                 <Link href='/home'>
                    <a> <Image src="/images/logo.svg" height={45} width={45} alt="Web3bridge-logo"/></a>
                 </Link>
+                Support@web3Bridge.com
             </div>
             <address>
             <a href="mailto:support@web3bridge.com">support@web3bridge</a>

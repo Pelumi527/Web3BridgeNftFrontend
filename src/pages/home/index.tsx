@@ -103,7 +103,7 @@ const Home = () => {
             <Image  src="/images/Group 9.svg" width="56px" height="56px" alt=''/>
             <Image  src="/images/Group 10.svg" width="56px" height="56px" alt=''/>
           </div>
-          <div className="flex justify-evenly"> 
+          <div className="flex flex-col items-center md:flex-row justify-evenly"> 
             <Image  src="/images/Group 11.svg" width="56px" height="56px" alt=''/>
             <Image  src="/images/Group 12.svg" width="56px" height="56px" alt=''/>
           </div>
@@ -131,7 +131,7 @@ const Home = () => {
                 <h1>Q4</h1>
                 <p>2022</p>
             </div>
-            <div className="flex flex-col items-center justify-center py-10 border-r-4 border-b-4 border-l-4 border-[#F02A2A] border-dashed">
+            <div className="flex flex-col items-center justify-center py-10 border-t-4 md:border-t-0 border-r-4 border-b-4 md:border-l-4 border-[#F02A2A] border-dashed">
                 <h1>Q1</h1>
                 <p>2023</p>
             </div>
