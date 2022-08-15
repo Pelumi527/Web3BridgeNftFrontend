@@ -3,14 +3,25 @@
 @tailwind utilities;
 
 @import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&family=PT+Serif+Caption&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif&display=swap');
 
-body {
-    font-family: "PT Serif Caption", serif;
+  body{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+
+  h1{
+    font-family: 'PT Serif', serif;
   }
 
  a{
   text-decoration: none;
  } 
+
+ p{
+  font-family: "PT Serif Caption", serif;
+ }
   
 .mint-text{
 font-size: 28px;
