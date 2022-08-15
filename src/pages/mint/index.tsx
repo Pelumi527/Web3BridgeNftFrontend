@@ -1,6 +1,22 @@
-import React from "react";
+import React, {useCallback, useState, useEffect, useMemo} from "react";
+import { NFTCONTRACT, USDC } from "../../config/constants/contract";
+import { useAccount, useContractRead, erc20ABI, useConnect, chain} from "wagmi"
+import { CHAIN_ID } from "../../config/constants/network";
+import { useApproveCallback, ApprovalState } from "../../hooks/useApproveCallback";
+import ConnectButton from "../../components/ConnectButton";
+import toast from "react-hot-toast";
 
 const Mint = () => {
+  const [mintAmount, setMintAmount] = useState<number>(0)
+  const [approvalState, approve] = useApproveCallback("500",NFTCONTRACT[CHAIN_ID])
+  const {isDisconnected } = useAccount();
+  const { data } = useConnect()
+  console.log(approvalState, "approval")
+
+  
+
+  
+
   return (
     <>
       <section
@@ -30,19 +46,42 @@ const Mint = () => {
             <div className="flex justify-between w-2/3 mx-auto mb-8">
               <button
                 className="w-1/4  bg-[#C4C4C4] btn-common rounded-sm"
+                disabled={!mintAmount}
+                onClick={() =>{
+                  setMintAmount(mintAmount - 1)
+                }}
               >
                 -
               </button>
-              <button className="bg-[#F02A2A]  font-mormal  text-white w-1/3 mint rounded-sm">
-                Mint
-              </button>
-              <button className="w-1/4  bg-[#C4C4C4] btn-common rounded-sm">+</button>
+              {
+                isDisconnected ? <ConnectButton /> :
+                  (
+                    approvalState === ApprovalState.NOT_APPROVED ||
+                    approvalState === ApprovalState.PENDING ?
+                      <button className="bg-[#F02A2A]  font-mormal  text-white w-1/3 mint rounded-sm"
+                        onClick={approve}
+                        disabled={approvalState === ApprovalState.PENDING}
+                      >
+                      {approvalState === ApprovalState.PENDING ? 'Approving': 'Approve'}
+                      </button>:
+                    <button className="bg-[#F02A2A]  font-mormal  text-white w-1/3 mint rounded-sm"
+                    onClick={approve}
+                    >
+                      Mint
+                  </button>
+                  )
+              }
+              <button className="w-1/4  bg-[#C4C4C4] btn-common rounded-sm"
+                onClick={() => {
+                  setMintAmount(mintAmount + 1)
+                }}
+              >+</button>
             </div>
             <div className=" bg-[#FDF3FC] flex justify-between items-center p-4 w-5/6 md:w-2/3 lg:w-2/3 mx-auto">
               <h5 className="mint-price">
                 Price: <span className="font-bold mint-sub">$700</span>
               </h5>
-              <p className="font-bold mint-count">2</p>
+              <p className="font-bold mint-count">{mintAmount}</p>
             </div>
           </div>
         </div>

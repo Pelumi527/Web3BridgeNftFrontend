@@ -3,6 +3,7 @@ import type { AppProps } from 'next/app'
 import Layout from '../layout'
 import Provider from '../Providers'
 import {useState, useEffect} from 'react'
+import { Toaster } from 'react-hot-toast'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [hasMounted, setHasMounted] = useState(false)
@@ -21,6 +22,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Layout>
         <Component {...pageProps} />
       </Layout>
+      <Toaster />
     </Provider>
   )
 }

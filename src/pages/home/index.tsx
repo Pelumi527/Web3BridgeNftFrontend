@@ -26,34 +26,45 @@ const Home = () => {
     )
   }
   return (
-    <section className="w-full bg-[#FDF3FC] mt-20 md:mt-20 lg:mt-20 "> 
+    <section className="w-full bg-[#FDF3FC] mt-20 md:mt-20 lg:pt-20 "> 
       <div className="md:grid lg:grid w-full h-full pt-8 md:pt-0 lg:pt-0 md:grid-cols-2 lg:grid-cols-2 px-6 md:px-12 lg:px-12 bg-[#FDF3FC]">
         <div className="flex flex-col justify-center mb-12 md:mb-0 lg:mb-0 md:px-20 lg:px-20">
-            <h1 className="mb-8 text-3xl font-bold text-red-500 ">Collecting digital rare arts for future investment scheme</h1>
+            <h1 className="mb-8 text-3xl font-bold text-red-500 ">About the NFT</h1>
             <p className="mb-8 text-xl">
-            Kranos NFT some text should actually be here, 
-            but i am currently out of content at the moment,
-            please help me out (sobs)
+                
+              <b>Blossoming Web3bridge</b> is a 4 by 5 feet art drawn on canvass. The art tells the story of 
+              Web3bridge grooming developers from Africa and are all over the word literally or remotely 
+              contributing to the growth of the blockchain ecosystem. 
+
             </p>
-            <div className="flex">
-              <button className="bg-[#F02A2A] text-white py-1 px-3 md:py-3 md:px-9 lg:py-3 lg:px-9 rounded-md hover:text-[#F02A2A] hover:bg-[#FDF3FC] mr-8">Get WhiteListed</button>
-              <button className="bg-[#FDF3FC] text-[#F02A2A] py-1 px-3 md:py-3 md:px-9 lg:py-3 lg:px-9 rounded-md border-2 border-[#F02A2A] hover:bg-[#F02A2A] hover:text-white">Confirm Whitelist</button>
+            <p className='mb-8 text-xl'>
+              The art’s major components include the globe, with Africa very pronounced, a growing and 
+              fruit-bearing fig tree, and fruits on the tree shown as Web3bridge logo dropping across the globe. Each dropping 
+              fruit represents Web3bridge Alumnis that are already in the global ecosystem contributing while the
+              smaller fruits that  are yet to forn into Web3bridge logo symbolizes devs in training and those that 
+              are yet to come out of the program.
+            </p>
+            <div className="flex justify-center md:justify-start">
+              <button className="bg-[#F02A2A] text-white py-1 px-3 md:py-3 md:px-9 lg:py-3 lg:px-9 rounded-md hover:text-[#F02A2A] hover:bg-[#FDF3FC] mr-8">
+                <a href='https://forms.gle/Ym289phXU6N98Kay6' target='_blank' rel='noreferrer'>Get WhiteListed</a>
+              </button>
+              <button disabled className="bg-[#FDF3FC] text-[#F02A2A] py-1 px-3 md:py-3 md:px-9 lg:py-3 lg:px-9 rounded-md border-2 border-[#F02A2A] hover:bg-[#F02A2A] hover:text-white cursor-not-allowed">Confirm Whitelist</button>
             </div>
         </div>
-        <div className="hidden md:block lg:block flex justify-center">
-          <Image src="/images/nft.svg" width="500px" height="500px" layout="fixed" alt='kranos-nft'/>
+        <div className="flex justify-center hidden md:block lg:block">
+          <Image src="/images/nft.jpeg" width="500px" height="500px" layout="fixed" alt='kranos-nft'/>
           {/* <img src="/images/nft.svg" width="100%" alt="nft_pic" /> */}
         </div>
       </div>
-      <div className="w-full md:my-6 lg:my-6 bg-[#FDF3FC] md:bg-white lg:bg-white ">
+      <div className="w-full md:my-6 lg:my-6 bg-[#FDF3FC] md:bg-white lg:bg-white lg:py-5">
         <h1 className="text-xl text-[#F02A2A] px-8 md:px-32 lg:px-32 font-extrabold">Briefing</h1>
-        <p className="px-8 py-2 md:px-32 md:py-5 lg:px-32 lg:py-5 text-xl">
+        <p className="px-8 py-2 text-xl md:px-32 md:py-5 lg:px-32 lg:py-5">
         Web3bridge was launched as 500NigeriaDevs4ETH following a call made for 1million Ethereum developers. Since 2019, 
         Web3bridge has focused on training Ethereum developers in Africa and have supported these developers to 
         find their firm footing in the development ecosystem. 
         </p>
-        <p className="px-8 py-2 md:px-32 md:py-5 lg:px-32 lg:py-5 text-xl"> In a bid to help Africans coming into development overcome identified numbers of barriers, Web3bridge offers</p>
-        <ul className="px-8 md:px-32 lg:px-32 mb-5 text-xl list-disc">
+        <p className="px-8 py-2 text-xl md:px-32 md:py-5 lg:px-32 lg:py-5"> In a bid to help Africans coming into development overcome identified numbers of barriers, Web3bridge offers</p>
+        <ul className="px-8 mb-5 text-xl list-disc md:px-32 lg:px-32">
           <li>the 16 weeks long training entirely free for all participants</li>
           <li>provide a physical facility in Lagos where developers are housed and catered for for free</li>
           <li>Ensures that developers has access to 24/7 electricity and internet </li>
@@ -61,7 +72,7 @@ const Home = () => {
         <div>{readMore && extraContent()}</div>
         <div className="flex justify-end px-32 font-extrabold"><a className="text-[#F02A2A] text-xl cursor-pointer" onClick={() => setReadMore(!readMore)}>{linkName}</a></div>
       </div>
-      <div className="block md:hidden lg:hidden flex justify-center p-4 md:p-0 lg:p-0">
+      <div className="flex justify-center block p-4 md:hidden lg:hidden md:p-0 lg:p-0">
           <Image src="/images/nft.svg" width="500px" height="500px" layout="fixed" alt='kranos-nft'/>
           {/* <img src="/images/nft.svg" width="100%" alt="nft_pic" /> */}
         </div>
@@ -140,7 +151,7 @@ const Home = () => {
 
       <div className="px-8 py-4 md:px-32 md:py-10 bg-[#FDF3FC] md:bg-white lg:bg-white lg:px-32 lg:py-10">
         <h1 className="text-xl text-[#F02A2A]  font-extrabold">Utility</h1>
-        <div className="grid grid-cols-2 gap-4  md-gap-0 md:grid-cols-4 lg:grid-cols-4 lg:gap-0 lg:mt-8">
+        <div className="grid grid-cols-2 gap-4 md-gap-0 md:grid-cols-4 lg:grid-cols-4 lg:gap-0 lg:mt-8">
           <div className="px-4 py-4 md:px-10 md:py-10 lg:px-10 lg:py-10 bg-[#281F950D] rounded-md">
             <h1 className="text-xl text-center text-[#0F8552] font-extrabold">100%</h1>
             <p>
