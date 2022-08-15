@@ -29,10 +29,10 @@ const Home = () => {
     <section className="w-full bg-[#FDF3FC] mt-20 md:mt-20 lg:pt-20 "> 
       <div className="md:grid lg:grid w-full h-full pt-8 md:pt-0 lg:pt-0 md:grid-cols-2 lg:grid-cols-2 px-6 md:px-12 lg:px-12 bg-[#FDF3FC]">
         <div className="flex flex-col justify-center mb-12 md:mb-0 lg:mb-0 md:px-20 lg:px-20">
-            <h1 className="mb-8 text-3xl font-bold text-red-500 ">About the NFT</h1>
+            <h1 className="mb-8 text-3xl font-bold text-red-500 ">Blossoming Web3bridge NFT</h1>
             <p className="mb-8 text-xl">
                 
-              <b>Blossoming Web3bridge</b> is a 4 by 5 feet art drawn on canvass. The art tells the story of 
+              Blossoming Web3bridge is a 4 by 5 feet art drawn on canvass. The art tells the story of 
               Web3bridge grooming developers from Africa and are all over the word literally or remotely 
               contributing to the growth of the blockchain ecosystem. 
 
