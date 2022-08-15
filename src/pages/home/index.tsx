@@ -34,7 +34,7 @@ const Home = () => {
             <p className="mb-8 text-xl">
                 
               Blossoming Web3bridge is a 4 by 5 feet art drawn on canvass. The art tells the story of 
-              Web3bridge grooming developers from Africa and are all over the word literally or remotely 
+              Web3bridge grooming developers from Africa and are all over the world literally or remotely 
               contributing to the growth of the blockchain ecosystem. 
 
             </p>
