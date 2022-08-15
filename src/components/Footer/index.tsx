@@ -16,7 +16,7 @@ const Footer = () => {
             </div>
            
         </div>
-        <div className="grid grid-cols-3 gap-10 p-4 md:grid-cols-4 md:gap-10 lg:grid-cols-4 lg:gap-10 md:p-0 lg:p-0 ">
+        <div className="grid grid-cols-1 gap-10 p-4 text-center md:grid-cols-4 md:gap-10 lg:grid-cols-4 lg:gap-10 md:p-0 lg:p-0 ">
             <div className='hidden md:block lg:block'>
             <div>
                 <Link href='/home'>

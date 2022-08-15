@@ -13,7 +13,7 @@ const Home = () => {
         <p className="text-xl ">
           All the above provisions were made in order to achieve the grooming of well grounded developers who are able to contribute to the ecosystem globally and locally.
           Web3bridge has ran six successful cohorts with the seventh one currently on and funded by Polygon and has received over 2000 applications from countries like Nigeria, Kenya, South Africa, Uganda, Ghana, Zimbabwe and have graduated over 150 developers who are actively working in the ecosystem as developers, developer advocates, ambassadors and product managers and has two products in active development.
-          As we continue to grow and scale, we are launching an NFT mint event to raise funds for Web3bridge to enable us to train more developers, fund development of more products and build the Web3bridge Campus.
+          <p>As we continue to grow and scale, we are launching an NFT mint event to raise funds for Web3bridge to enable us to train more developers, fund development of more products and build the Web3bridge Campus.</p>
           We have an artwork drawn on canvas which tells the story of Web3bridge; the past, present and the future we foresee.
           We will be minting a thousand pieces of the art and will be distributed as follows : 
         </p>
