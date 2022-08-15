@@ -78,11 +78,11 @@ const result = diff_miliseconds(dt2,dt1)
     } else {
       // Render a countdown
       return (
-        <div>
+        <div className="flex flex-col">
           <span className="text-[#0F0F0F]">
-            <i>Whitelist ends in</i>
+            <i className="text-xm md:text-xl">Whitelist ends in</i>
           </span>
-          <div className="mr-4 text-[#F02A2A] font-bold">
+          <div className="mr-4 text-[#F02A2A] font-bold text-sm md:text-xl">
             {days} days : {hours} hours : {minutes} mins : {seconds} secs
           </div>
         </div>
@@ -103,7 +103,7 @@ const result = diff_miliseconds(dt2,dt1)
           />
         </a>
       </Link>
-      <div className="flex items-center justify-center">
+      <div className="flex flex-col items-center justify-between md:flex-row">
         <div>
           <Countdown date={data.date + data.delay}
           

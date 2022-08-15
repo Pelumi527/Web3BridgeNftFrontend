@@ -30,7 +30,7 @@ const Home = () => {
     <section className="w-full bg-[#FDF3FC] mt-20 md:mt-20 lg:pt-20 "> 
       <div className="md:grid lg:grid w-full h-full pt-8 md:pt-20 lg:pt-0 md:grid-cols-1 lg:grid-cols-3 px-6 md:px-12 lg:px-12 bg-[#FDF3FC]">
         <div className="flex flex-col items-center justify-center col-span-2 mb-12 md:mb-0 lg:mb-0 md:px-20 lg:px-15">
-            <h1 className="mb-8 text-3xl font-bold text-red-500 ">Blossoming Web3bridge NFT</h1>
+            <h1 className="mb-8 text-3xl font-bold text-center text-red-500 md:text-5xl">Blossoming Web3bridge NFT</h1>
             <p className="mb-8 text-xl">
                 
               Blossoming Web3bridge is a 4 by 5 feet art drawn on canvass. The art tells the story of 
@@ -48,12 +48,16 @@ const Home = () => {
             <div className="flex">
 
               <button className="bg-[#F02A2A] text-white py-1 px-3 md:py-3 md:px-9 lg:py-3 lg:px-9 rounded-md hover:text-[#F02A2A] hover:bg-[#FDF3FC] mr-8"><a href="https://forms.gle/Ym289phXU6N98Kay6" target="_blank" rel="noopener noreferrer" >Get WhiteListed</a></button>
-              <button disabled={true} className="bg-[#FDF3FC] text-[#F02A2A] py-1 px-3 md:py-3 md:px-9 lg:py-3 lg:px-9 rounded-md border-2 border-[#F02A2A] hover:bg-[#F02A2A] hover:text-white">Confirm Whitelist</button>
+              <button disabled className="bg-[#FDF3FC] text-[#F02A2A] py-1 px-3 md:py-3 md:px-9 lg:py-3 lg:px-9 rounded-md border-2 border-[#F02A2A] hover:bg-[#F02A2A] hover:text-white cursor-not-allowed">Confirm Whitelist</button>
             </div>
         </div>
-        <div className="hidden md:flex md:flex-col md:items-center md:mt-10 md:justify-center md:block lg:block">
-          <Image src="/images/nft.svg" width="450px" height="450px" layout="fixed" alt='kranos-nft'/>
+        <div className="hidden lg:block md:hidden">
+          <Image src="/images/nft.svg" width="450px" height="450px" layout="responsive" alt='kranos-nft'/>
           {/* <img src="/images/nft.svg" width="100%" alt="nft_pic" /> */}
+        </div>
+        <div className="flex items-end justify-between p-4 lg:hidden md:p-0 lg:p-0">
+          <Image src="/images/nft.svg" width="450px" height="500px" layout="fixed" alt='kranos-nft'/>
+          <Image src="/images/nft.svg" width="80px" height="80px" layout="fixed" alt='kranos-nft'/>
         </div>
       </div>
       <div className="w-full md:my-6 lg:my-6 bg-[#FDF3FC] md:bg-white lg:bg-white lg:py-5">
@@ -72,18 +76,15 @@ const Home = () => {
         <div>{readMore && extraContent()}</div>
         <div className="flex justify-end px-32 font-extrabold"><a className="text-[#F02A2A] text-xl cursor-pointer" onClick={() => setReadMore(!readMore)}>{linkName}</a></div>
       </div>
-      <div className="flex justify-center block p-4 md:hidden lg:hidden md:p-0 lg:p-0">
-          <Image src="/images/nft.svg" width="500px" height="500px" layout="fixed" alt='kranos-nft'/>
-          {/* <img src="/images/nft.svg" width="100%" alt="nft_pic" /> */}
-        </div>
+      
       <div className="px-6 py-2 md:px-32 md:py-5 lg:px-32 lg:py-5 bg-[#FDF3FC]">
         <h1 className="text-xl text-[#F02A2A] font-extrabold">Roadmap</h1>
         <div className='hidden md:block lg:block'>
-        <Image src="/images/roadmap.svg" alt="roadmap"  width="100%" height="50" layout="responsive" objectFit="contain"/>
-            </div>
-            <div className='block md:hidden lg:hidden'>
-        <Image src="/images/mobile.svg" alt="roadmap"  width="100%" height="50" layout="responsive" objectFit="contain"/>
-            </div>
+          <Image src="/images/roadmap.svg" alt="roadmap"  width="100%" height="50" layout="responsive" objectFit="contain"/>
+        </div>
+        <div className='block md:hidden lg:hidden'>
+          <Image src="/images/mobile.svg" alt="roadmap"  width="100%" height="50" layout="responsive" objectFit="contain"/>
+        </div>
 
 
         {/* <div className="grid grid-cols-5 gap-20 mt-8 ">
