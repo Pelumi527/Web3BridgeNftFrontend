@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const Home = () => {
 
@@ -44,11 +45,10 @@ const Home = () => {
               smaller fruits that  are yet to forn into Web3bridge logo symbolizes devs in training and those that 
               are yet to come out of the program.
             </p>
-            <div className="flex justify-center md:justify-start">
-              <button className="bg-[#F02A2A] text-white py-1 px-3 md:py-3 md:px-9 lg:py-3 lg:px-9 rounded-md hover:text-[#F02A2A] hover:bg-[#FDF3FC] mr-8">
-                <a href='https://forms.gle/Ym289phXU6N98Kay6' target='_blank' rel='noreferrer'>Get WhiteListed</a>
-              </button>
-              <button disabled className="bg-[#FDF3FC] text-[#F02A2A] py-1 px-3 md:py-3 md:px-9 lg:py-3 lg:px-9 rounded-md border-2 border-[#F02A2A] hover:bg-[#F02A2A] hover:text-white cursor-not-allowed">Confirm Whitelist</button>
+            <div className="flex">
+
+              <button className="bg-[#F02A2A] text-white py-1 px-3 md:py-3 md:px-9 lg:py-3 lg:px-9 rounded-md hover:text-[#F02A2A] hover:bg-[#FDF3FC] mr-8"><a href="https://forms.gle/Ym289phXU6N98Kay6" target="_blank" rel="noopener noreferrer" >Get WhiteListed</a></button>
+              <button disabled={true} className="bg-[#FDF3FC] text-[#F02A2A] py-1 px-3 md:py-3 md:px-9 lg:py-3 lg:px-9 rounded-md border-2 border-[#F02A2A] hover:bg-[#F02A2A] hover:text-white">Confirm Whitelist</button>
             </div>
         </div>
         <div className="flex justify-center hidden md:block lg:block">
