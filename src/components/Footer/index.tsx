@@ -8,7 +8,7 @@ const Footer = () => {
         <div className='items-center block md:hidden lg:hidden'>
             <div>
                 <Link href='/home'>
-                   <a> <Image src="/images/logo.svg" height={45} width={45} alt="Web3bridge-logo"/></a>
+                   <a> <Image src="/images/logo.png" height={70} width={200} alt="Web3bridge-logo"/></a>
                 </Link>
                 <address>
                      <a href="mailto:support@web3bridge.com">support@web3bridge</a>
@@ -20,7 +20,7 @@ const Footer = () => {
             <div className='hidden md:block lg:block'>
             <div>
                 <Link href='/home'>
-                   <a> <Image src="/images/logo.svg" height={45} width={45} alt="Web3bridge-logo"/></a>
+                   <a> <Image src="/images/logo.png" height={70} width={200} alt="Web3bridge-logo"/></a>
                 </Link>
             </div>
             <address>
