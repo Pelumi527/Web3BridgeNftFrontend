@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const Home = () => {
 
@@ -36,8 +37,9 @@ const Home = () => {
             please help me out (sobs)
             </p>
             <div className="flex">
-              <button className="bg-[#F02A2A] text-white py-1 px-3 md:py-3 md:px-9 lg:py-3 lg:px-9 rounded-md hover:text-[#F02A2A] hover:bg-[#FDF3FC] mr-8">Get WhiteListed</button>
-              <button className="bg-[#FDF3FC] text-[#F02A2A] py-1 px-3 md:py-3 md:px-9 lg:py-3 lg:px-9 rounded-md border-2 border-[#F02A2A] hover:bg-[#F02A2A] hover:text-white">Confirm Whitelist</button>
+
+              <button className="bg-[#F02A2A] text-white py-1 px-3 md:py-3 md:px-9 lg:py-3 lg:px-9 rounded-md hover:text-[#F02A2A] hover:bg-[#FDF3FC] mr-8"><a href="https://forms.gle/Ym289phXU6N98Kay6" target="_blank" rel="noopener noreferrer" >Get WhiteListed</a></button>
+              <button disabled={true} className="bg-[#FDF3FC] text-[#F02A2A] py-1 px-3 md:py-3 md:px-9 lg:py-3 lg:px-9 rounded-md border-2 border-[#F02A2A] hover:bg-[#F02A2A] hover:text-white">Confirm Whitelist</button>
             </div>
         </div>
         <div className="hidden md:block lg:block flex justify-center">
