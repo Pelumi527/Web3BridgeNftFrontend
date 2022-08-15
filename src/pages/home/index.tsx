@@ -28,7 +28,7 @@ const Home = () => {
   }
   return (
     <section className="w-full bg-[#FDF3FC] mt-20 md:mt-20 lg:pt-20 "> 
-      <div className="md:grid lg:grid w-full h-full pt-8 md:pt-20 lg:pt-0 md:grid-cols-1 lg:grid-cols-3 px-6 md:px-12 lg:px-12 bg-[#FDF3FC]">
+      <div className="md:grid lg:grid w-full h-full pt-20 md:pt-20 lg:pt-0 md:grid-cols-1 lg:grid-cols-3 px-6 md:px-12 lg:px-12 bg-[#FDF3FC]">
         <div className="flex flex-col items-center justify-center col-span-2 mb-12 md:mb-0 lg:mb-0 md:px-20 lg:px-15">
             <h1 className="mb-8 text-3xl font-bold text-center text-red-500 md:text-5xl">Blossoming Web3bridge NFT</h1>
             <p className="mb-8 text-xl">
