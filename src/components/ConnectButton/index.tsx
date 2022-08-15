@@ -4,10 +4,9 @@ import {
     useConnect, 
     useAccount,
     useDisconnect, 
-    useEnsAvatar,
-    useEnsName,
-    chain
 } from "wagmi"
+import { CHAIN_ID } from '../../config/constants/network'
+import { toast } from 'react-hot-toast'
 
 
 const ConnectButton = () => {
@@ -15,10 +14,14 @@ const ConnectButton = () => {
     // const { data: ensAvatar } = useEnsAvatar({ addressOrName: address })
     // const { data: ensName } = useEnsName({ address })
     const { disconnect } = useDisconnect()
-    const {connect, connectors, error, isLoading, pendingConnector } = useConnect({chainId: chain.polygonMumbai.id})
+    const {connect, connectors, error, isLoading, pendingConnector } = useConnect({chainId: CHAIN_ID})
     
  
     const [isOpen, setIsOpen] = useState(false)
+
+    const notify = () => {
+      toast.success('Disconnected')
+    }
 
     function closeModal() {
         setIsOpen(false)
@@ -61,7 +64,11 @@ const ConnectButton = () => {
                         className={`${
                           active ? 'bg-black text-white' : 'text-gray-900'
                         } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
-                        onClick={() => disconnect()}
+                        onClick={() => {
+                          disconnect()
+                          notify()
+                        }}
+                        
                       >
                         Disconnect
                       </button>
@@ -132,7 +139,7 @@ const ConnectButton = () => {
                                  async () => {
                                   connect({connector})
                                   closeModal()
-
+                                  toast.success('Connected')
                                  }
                                 }
                                 type="button"
