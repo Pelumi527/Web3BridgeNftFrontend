@@ -42,7 +42,7 @@ const Home = () => {
               The art’s major components include the globe, with Africa very pronounced, a growing and 
               fruit-bearing fig tree, and fruits on the tree shown as Web3bridge logo dropping across the globe. Each dropping 
               fruit represents Web3bridge Alumnis that are already in the global ecosystem contributing while the
-              smaller fruits that  are yet to forn into Web3bridge logo symbolizes devs in training and those that 
+              smaller fruits that are yet to form into Web3bridge logo symbolizes devs in training and those that 
               are yet to come out of the program.
             </p>
             <div className="flex">
