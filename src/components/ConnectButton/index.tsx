@@ -44,7 +44,7 @@ const ConnectButton = () => {
                <Menu as="div" className="relative inline-block text-left">
                 <div>
                   <Menu.Button className="px-4 py-4 text-white bg-black">
-                    {address?.substring(0, 6)}...{address?.substring(42, 38)}...{address?.substring(42-4)}
+                    {address?.substring(0, 6)}...{address?.substring(30, 36)}...{address?.substring(42-4)}
                   </Menu.Button>
                 </div>
                 <Transition
@@ -84,7 +84,7 @@ const ConnectButton = () => {
           <button
             type="button"
             onClick={openModal}
-            className="px-2 py-2 md:px-4 md:py-4 lg:px-4 lg:py-4 text-sm font-bold text-white bg-red-500 rounded-md hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+            className="px-2 py-2 text-sm font-bold text-white bg-red-500 rounded-md md:px-4 md:py-4 lg:px-4 lg:py-4 hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
           >
             Connect Wallet
           </button>
