@@ -47,7 +47,7 @@ const Home = () => {
             </p>
             <div className="flex">
 
-              <button className="bg-[#F02A2A] text-white py-1 px-3 md:py-3 md:px-9 lg:py-3 lg:px-9 rounded-md hover:text-[#F02A2A] hover:bg-[#FDF3FC] mr-8"><a href="https://forms.gle/Ym289phXU6N98Kay6" target="_blank" rel="noopener noreferrer" >Get WhiteListed</a></button>
+              <button className="bg-[#F02A2A] text-white py-1 px-3 md:py-3 md:px-9 lg:py-3 lg:px-9 rounded-md hover:text-[#F02A2A] hover:bg-[#FDF3FC] mr-8 hover:border-[#F02A2A] hover:border-2"><a href="https://forms.gle/Ym289phXU6N98Kay6" target="_blank" rel="noopener noreferrer" >Get WhiteListed</a></button>
               <button disabled className="bg-[#FDF3FC] text-[#F02A2A] py-1 px-3 md:py-3 md:px-9 lg:py-3 lg:px-9 rounded-md border-2 border-[#F02A2A] hover:bg-[#F02A2A] hover:text-white cursor-not-allowed">Confirm Whitelist</button>
             </div>
         </div>

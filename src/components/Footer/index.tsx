@@ -11,7 +11,7 @@ const Footer = () => {
                    <a> <Image src="/images/logo.png" height={70} width={200} alt="Web3bridge-logo"/></a>
                 </Link>
                 <address>
-                     <a href="mailto:support@web3bridge.com">support@web3bridge</a>
+                    <a href="mailto:support@web3bridge.com"><p>support@web3bridge</p></a>
                 </address>
             </div>
            
@@ -24,34 +24,34 @@ const Footer = () => {
                 </Link>
             </div>
             <address>
-            <a href="mailto:support@web3bridge.com">support@web3bridge</a>
+            <a href="mailto:support@web3bridge.com"><p>support@web3bridge</p></a>
            </address>
             </div>
             <div>
                 <h1 className="py-4 text-lg font-bold">Web3Bridge</h1>
                 <ul>
-                    <li><a className='text-lg font-normal md:text-base lg:text-base' href='https://www.web3bridge.com/about-us' target="_blank" rel="noreferrer">About us</a></li>
-                    <li><a className='text-lg font-normal md:text-base lg:text-base' href='https://www.web3bridge.com/' target="_blank" rel="noreferrer">Courses</a></li>
-                    <li><a className='text-lg font-normal md:text-base lg:text-base' href='https://www.web3bridge.com/' target="_blank" rel="noreferrer">Partner</a></li>
-                    <li><a className='text-lg font-normal md:text-base lg:text-base' href='https://www.web3bridge.com/alumni' target="_blank" rel="noreferrer">Alumni</a></li>
+                    <li><a className='text-lg font-normal md:text-base lg:text-base' href='https://www.web3bridge.com/about-us' target="_blank" rel="noreferrer"><p>About us</p></a></li>
+                    <li><a className='text-lg font-normal md:text-base lg:text-base' href='https://www.web3bridge.com/' target="_blank" rel="noreferrer"><p>Courses</p></a></li>
+                    <li><a className='text-lg font-normal md:text-base lg:text-base' href='https://www.web3bridge.com/' target="_blank" rel="noreferrer"><p>Partner</p></a></li>
+                    <li><a className='text-lg font-normal md:text-base lg:text-base' href='https://www.web3bridge.com/alumni' target="_blank" rel="noreferrer"><p>Alumni</p></a></li>
                 </ul>
             </div>
             <div>
                 <h1 className="py-4 text-lg font-bold">Support</h1>
                 <ul>
-                    <li><a className='text-lg font-normal md:text-base lg:text-base' href='https://www.web3bridge.com/' target="_blank" rel="noreferrer">Terms of service</a></li>
-                    <li><a className='text-lg font-normal md:text-base lg:text-base' href='https://www.web3bridge.com/dapps' target="_blank" rel="noreferrer">Privacy Policiy</a></li>
-                    <li><a className='text-lg font-normal md:text-base lg:text-base' href='https://www.web3bridge.com/dapps' target="_blank" rel="noreferrer">Dapps</a></li>
-                    <li><a className='text-lg font-normal md:text-base lg:text-base' href='https://www.web3bridge.com/dapps' target="_blank" rel="noreferrer">FAQ</a></li>
+                    <li><a className='text-lg font-normal md:text-base lg:text-base' href='https://www.web3bridge.com/' target="_blank" rel="noreferrer"><p>Terms of service</p></a></li>
+                    <li><a className='text-lg font-normal md:text-base lg:text-base' href='https://www.web3bridge.com/dapps' target="_blank" rel="noreferrer"><p>Privacy Policiy</p></a></li>
+                    <li><a className='text-lg font-normal md:text-base lg:text-base' href='https://www.web3bridge.com/dapps' target="_blank" rel="noreferrer"><p>Dapps</p></a></li>
+                    <li><a className='text-lg font-normal md:text-base lg:text-base' href='https://www.web3bridge.com/dapps' target="_blank" rel="noreferrer"><p>FAQ</p></a></li>
                 </ul>
             </div>
             <div>
                 <h1 className="py-4 text-lg font-bold"> General</h1>
                 <ul>
-                    <li><a className='text-lg font-normal md:text-base lg:text-base' href='https://t.me/web3bridge' target="_blank" rel="noreferrer">Join Community</a></li>
-                    <li><a className='text-lg font-normal md:text-base lg:text-base' href='https://www.web3bridge.com/' target="_blank" rel="noreferrer">Events</a></li>
-                    <li><a className='text-lg font-normal md:text-base lg:text-base' href='https://www.web3bridge.com/' target="_blank" rel="noreferrer">Resources</a></li>
-                    <li><a className='text-lg font-normal md:text-base lg:text-base' href='https://www.web3bridge.com/' target="_blank" rel="noreferrer">Links</a></li>
+                    <li><a className='text-lg font-normal md:text-base lg:text-base' href='https://t.me/web3bridge' target="_blank" rel="noreferrer"><p>Join Community</p></a></li>
+                    <li><a className='text-lg font-normal md:text-base lg:text-base' href='https://www.web3bridge.com/' target="_blank" rel="noreferrer"><p>Events</p></a></li>
+                    <li><a className='text-lg font-normal md:text-base lg:text-base' href='https://www.web3bridge.com/' target="_blank" rel="noreferrer"><p>Resources</p></a></li>
+                    <li><a className='text-lg font-normal md:text-base lg:text-base' href='https://www.web3bridge.com/' target="_blank" rel="noreferrer"><p>Links</p></a></li>
                 </ul>
             </div>
         </div>

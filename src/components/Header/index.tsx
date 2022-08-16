@@ -80,10 +80,10 @@ const result = diff_miliseconds(dt2,dt1)
       return (
         <div className="flex flex-col">
           <span className="text-[#0F0F0F]">
-            <i className="text-xm md:text-xl">Whitelist ends in</i>
+            <i className="text-xm md:text-xl"><p>Whitelist ends in</p></i>
           </span>
           <div className="mr-4 text-[#F02A2A] font-bold text-sm md:text-xl">
-            {days} days : {hours} hours : {minutes} mins : {seconds} secs
+            <p>{days} days : {hours} hours : {minutes} mins : {seconds} secs</p>
           </div>
         </div>
       );

@@ -7,20 +7,30 @@ import {
 } from "wagmi"
 import { CHAIN_ID } from '../../config/constants/network'
 import { toast } from 'react-hot-toast'
+import { ChevronDownIcon } from '@heroicons/react/solid'
 
 
 const ConnectButton = () => {
-    const { address, connector, isConnected } = useAccount()
+    const { address, connector, isConnected, isDisconnected} = useAccount()
     // const { data: ensAvatar } = useEnsAvatar({ addressOrName: address })
     // const { data: ensName } = useEnsName({ address })
     const { disconnect } = useDisconnect()
-    const {connect, connectors, error, isLoading, pendingConnector } = useConnect({chainId: CHAIN_ID})
+    const {connect, connectors, error, isLoading, pendingConnector,status } = useConnect({
+      chainId: CHAIN_ID,
+    })
     
  
     const [isOpen, setIsOpen] = useState(false)
 
     const notify = () => {
+     if(!isConnected){
+      toast.success('Connected')
+      return
+     }
+     if(!isDisconnected){
       toast.success('Disconnected')
+      return
+     }
     }
 
     function closeModal() {
@@ -32,8 +42,14 @@ const ConnectButton = () => {
       }
 
       useEffect(() => {
-        setIsOpen(false)
-      }, [])
+        if(status == "success"){
+          toast.success('Connected')
+          console.log(status)
+        }
+  
+      }, [status])
+
+
       
       
       return (
@@ -43,8 +59,12 @@ const ConnectButton = () => {
              <div>
                <Menu as="div" className="relative inline-block text-left">
                 <div>
-                  <Menu.Button className="px-4 py-4 text-white bg-black">
-                    {address?.substring(0, 6)}...{address?.substring(30, 36)}...{address?.substring(42-4)}
+                  <Menu.Button className="inline-flex px-4 py-4 text-white bg-black rounded-md">
+                    <p>{address?.substring(0, 6)}...{address?.substring(30, 36)}...{address?.substring(42-4)}</p>
+                    <ChevronDownIcon
+                        className="w-5 h-5 ml-2 -mr-1 text-violet-200 hover:text-violet-100"
+                        aria-hidden="true"
+                      />
                   </Menu.Button>
                 </div>
                 <Transition
@@ -66,7 +86,6 @@ const ConnectButton = () => {
                         } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
                         onClick={() => {
                           disconnect()
-                          notify()
                         }}
                         
                       >
@@ -139,7 +158,7 @@ const ConnectButton = () => {
                                  async () => {
                                   connect({connector})
                                   closeModal()
-                                  toast.success('Connected')
+                                  
                                  }
                                 }
                                 type="button"

@@ -11,16 +11,31 @@
     margin: 0;
   }
 
+  @font-face {
+    font-family: 'Product Sans Bold';
+    src: URL('./fonts/Product\ Sans\ Bold.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'Product Sans Regular';
+    src: URL('./fonts/Product\ Sans\ Regular.ttf') format('truetype');
+  }
+
   h1{
-    font-family: 'PT Serif', serif;
+    font-family: 'Product Sans Bold', serif;
   }
 
  a{
-  text-decoration: none;
+    text-decoration: none;
+    font-family: "Product Sans Regular", serif;
  } 
 
  p{
-  font-family: "PT Serif Caption", serif;
+  font-family: "Product Sans Regular", serif;
+ }
+
+ button{
+  font-family: 'Product Sans Bold', serif;
  }
   
 .mint-text{
