@@ -44,13 +44,9 @@ const ConnectButton = () => {
       useEffect(() => {
         if(status == "success"){
           toast.success('Connected')
-          console.log(status)
         }
-  
+        console.log(status)
       }, [status])
-
-
-      
       
       return (
         <>
@@ -87,7 +83,6 @@ const ConnectButton = () => {
                         onClick={() => {
                           disconnect()
                         }}
-                        
                       >
                         Disconnect
                       </button>

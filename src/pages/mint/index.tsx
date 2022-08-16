@@ -1,6 +1,6 @@
 import React, {useCallback, useState, useEffect, useMemo} from "react";
-import { NFTCONTRACT, USDC } from "../../config/constants/contract";
-import { useAccount, useContractRead, erc20ABI, useConnect, chain} from "wagmi"
+import { NFTCONTRACT} from "../../config/constants/contract";
+import { useAccount, useConnect} from "wagmi"
 import { CHAIN_ID } from "../../config/constants/network";
 import { useApproveCallback, ApprovalState } from "../../hooks/useApproveCallback";
 import ConnectButton from "../../components/ConnectButton";
@@ -8,16 +8,13 @@ import toast from "react-hot-toast";
 
 const Mint = () => {
   const [mintAmount, setMintAmount] = useState<number>(0)
-  const [approvalState, approve] = useApproveCallback("500",NFTCONTRACT[CHAIN_ID])
+  const [approvalState, approve, pendingApproval] = useApproveCallback("500",NFTCONTRACT[CHAIN_ID])
   const {isDisconnected } = useAccount();
   const { data } = useConnect()
   console.log(approvalState, "approval")
 
   
-
-  
-
-  return (
+    return (
     <>
       <section
         id="mint-nft"
@@ -60,7 +57,7 @@ const Mint = () => {
                     approvalState === ApprovalState.PENDING ?
                       <button className="bg-[#F02A2A]  font-mormal  text-white w-1/3 mint rounded-sm"
                         onClick={approve}
-                        disabled={approvalState === ApprovalState.PENDING}
+                        disabled={pendingApproval}
                       >
                       {approvalState === ApprovalState.PENDING ? 'Approving': 'Approve'}
                       </button>:

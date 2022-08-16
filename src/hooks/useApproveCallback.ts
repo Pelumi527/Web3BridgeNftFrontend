@@ -18,7 +18,7 @@ export enum ApprovalState {
 export function useApproveCallback(
     amountToApprove:string,
     spender:string
-):[ApprovalState, () => Promise<void>]{
+):[ApprovalState, () => Promise<void>, boolean]{
 
     const { address } = useAccount();
    
@@ -96,5 +96,5 @@ export function useApproveCallback(
    
    
     
-    return [approvalState, approve]
+    return [approvalState, approve, isLoading]
 } 
