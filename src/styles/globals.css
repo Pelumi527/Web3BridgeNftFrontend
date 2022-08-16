@@ -88,4 +88,16 @@ color: rgba(36, 36, 36, 0.71);
     font-size: 20px;
     line-height: 26.5px;
   }
+
+  .btn_cta{
+    padding: 0.5rem 0.5rem;
+  }
+  .timer_desc{
+    font-size: 5.65px;
+    line-height: 6.16px;
+  }
+  .timer{
+    font-size: 8px;
+    line-height: 11px;
+  }
 }

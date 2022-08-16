@@ -7,7 +7,8 @@ import {
 } from "wagmi"
 import { CHAIN_ID } from '../../config/constants/network'
 import { toast } from 'react-hot-toast'
-import { ChevronDownIcon } from '@heroicons/react/solid'
+import { ChevronDownIcon } from '@heroicons/react/solid';
+import {shortenAddress} from "../../utils/helper"
 
 
 const ConnectButton = () => {
@@ -55,8 +56,16 @@ const ConnectButton = () => {
              <div>
                <Menu as="div" className="relative inline-block text-left">
                 <div>
-                  <Menu.Button className="inline-flex px-4 py-4 text-white bg-black rounded-md">
+                  <Menu.Button className="hidden md:inline-flex lg:inline-flex px-4 py-4  text-white bg-black rounded-md">
                     <p>{address?.substring(0, 6)}...{address?.substring(30, 36)}...{address?.substring(42-4)}</p>
+                    <ChevronDownIcon
+                        className="w-5 h-5 ml-2 -mr-1 text-violet-200 hover:text-violet-100"
+                        aria-hidden="true"
+                      />
+                  </Menu.Button>
+
+                  <Menu.Button className="inline-flex px-4 btn_cta py-4 block md:hidden lg:hiddeb text-white bg-black rounded-md">
+                    <p>{shortenAddress(address)}</p>
                     <ChevronDownIcon
                         className="w-5 h-5 ml-2 -mr-1 text-violet-200 hover:text-violet-100"
                         aria-hidden="true"

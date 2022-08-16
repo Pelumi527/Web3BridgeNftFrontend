@@ -79,10 +79,10 @@ const result = diff_miliseconds(dt2,dt1)
       // Render a countdown
       return (
         <div className="flex flex-col">
-          <span className="text-[#0F0F0F]">
-            <i className="text-xm md:text-xl"><p>Whitelist ends in</p></i>
+          <span className="text-[#0F0F0F] ">
+            <i className="text-xm md:text-xl timer_desc"><p>Whitelist ends in</p></i>
           </span>
-          <div className="mr-4 text-[#F02A2A] font-bold text-sm md:text-xl">
+          <div className="mr-4 text-[#F02A2A] font-bold timer text-sm md:text-xl">
             <p>{days} days : {hours} hours : {minutes} mins : {seconds} secs</p>
           </div>
         </div>
@@ -91,9 +91,9 @@ const result = diff_miliseconds(dt2,dt1)
   };
 
   return (
-    <div className="box-border fixed z-50 flex items-center justify-between w-full px-4 py-4 mx-auto font-bold bg-pink-100 md:px-10 md:py-6 lg:px-10 lg:py-6">
-      <Link href="/home">
-        <a>
+    <div className="box-border fixed z-50 flex items-center   md:space-x-0 lg:space-x-0 justify-between w-full px-5 py-5  mx-auto font-bold bg-pink-100 md:px-10 md:py-6 lg:px-10 lg:py-6">
+      <Link   href="/home">
+        <a className="hidden md:inline-flex lg:inline-flex">
           {" "}
           <Image
             src="/images/logo.png"
@@ -103,7 +103,18 @@ const result = diff_miliseconds(dt2,dt1)
           />
         </a>
       </Link>
-      <div className="flex flex-col items-center justify-between md:flex-row">
+      <Link  href="/home">
+        <a className="md:hidden mr-2 lg:hidden">
+          {" "}
+          <Image
+            src="/images/logo2.png"
+            height={24}
+            width={70}
+            alt="Web3bridge-logo"
+          />
+        </a>
+      </Link>
+      <div className="flex  items-center justify-between md:flex-row">
         <div>
           <Countdown date={data.date + data.delay}
           
