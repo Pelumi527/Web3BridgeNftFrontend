@@ -162,19 +162,19 @@ const Home = () => {
           <div className="px-4 py-4 md:px-10 md:py-10 lg:px-10 lg:py-10 rounded-md bg-[#91C1EE1A]">
             <h1 className="text-center text-xl font-extrabold text-[#172BDD]">5%</h1>
             <p>
-            Access to Web3bridge internal news discord channel (development and product update)
+            Access to token/equity share of all Web3bridge products/projects
             </p>
           </div>
           <div className="bg-[#f2f2f2] px-4 py-4 md:px-10 md:py-10 lg:px-10 lg:py-10 rounded-md">
             <h1 className="text-center text-xl font-extrabold text-[#EC2AF0]">10%</h1>
             <p>
-            Access to Web3bridge internal news discord channel (development and product update)
+            Annual Income Sharing Agreement shares
             </p>
           </div>
           <div className="bg-[#e9f2f2] px-4 py-4 md:px-10 md:py-10 lg:px-10 lg:py-10 rounded-md">
             <h1 className="text-center text-xl text-[#1DCAD4] font-extrabold">10%</h1>
             <p>
-            Access to Web3bridge internal news discord channel (development and product update)
+            Annual return on all development contract fund taken by Web3bridge dev team
             </p>
           </div>
         </div>
