@@ -1,6 +1,6 @@
 import { useCallback, useMemo } from "react"
 import { useAccount, useContractRead, erc20ABI, useContractWrite, usePrepareContractWrite, useWaitForTransaction} from "wagmi"
-import { NFTCONTRACT, USDC } from "../config/constants/contract";
+import { BlossomAddress, USDC } from "../config/constants/address";
 import { CHAIN_ID } from "../config/constants/network";
 import { toast } from "react-hot-toast";
 import { MaxUint256 } from "@ethersproject/constants";
@@ -55,7 +55,7 @@ export function useApproveCallback(
         addressOrName: USDC[CHAIN_ID],
         contractInterface: erc20ABI,
         functionName:'allowance',
-        args:[address, NFTCONTRACT[CHAIN_ID]]
+        args:[address, BlossomAddress[CHAIN_ID]]
     })
     
     const currentAllowance = data?.toString()

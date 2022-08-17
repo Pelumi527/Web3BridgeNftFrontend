@@ -1,5 +1,5 @@
 import React, {useCallback, useState, useEffect, useMemo} from "react";
-import { NFTCONTRACT} from "../../config/constants/contract";
+import { BlossomAddress} from "../../config/constants/address";
 import { useAccount, useConnect} from "wagmi"
 import { CHAIN_ID } from "../../config/constants/network";
 import { useApproveCallback, ApprovalState } from "../../hooks/useApproveCallback";
@@ -8,7 +8,7 @@ import toast from "react-hot-toast";
 
 const Mint = () => {
   const [mintAmount, setMintAmount] = useState<number>(0)
-  const [approvalState, approve, pendingApproval] = useApproveCallback("500",NFTCONTRACT[CHAIN_ID])
+  const [approvalState, approve, pendingApproval] = useApproveCallback("500",BlossomAddress[CHAIN_ID])
   const {isDisconnected } = useAccount();
   const { data } = useConnect()
   console.log(approvalState, "approval")
