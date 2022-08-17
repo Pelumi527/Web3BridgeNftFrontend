@@ -162,7 +162,7 @@ const Home = () => {
           <div className="px-4 py-4 md:px-10 md:py-10 lg:px-10 lg:py-10 rounded-md bg-[#91C1EE1A]">
             <h1 className="text-center text-xl font-extrabold text-[#172BDD]">5%</h1>
             <p>
-            Access to 5% token/equity share of all Web3bridge products/projects
+            Access to token/equity share of all Web3bridge products/projects
             </p>
           </div>
           <div className="bg-[#f2f2f2] px-4 py-4 md:px-10 md:py-10 lg:px-10 lg:py-10 rounded-md">
