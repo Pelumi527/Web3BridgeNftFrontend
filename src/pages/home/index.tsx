@@ -74,7 +74,7 @@ const Home = () => {
           <li> <p>Ensures that developers has access to 24/7 electricity and internet</p></li>
         </ul>
         <div>{readMore && extraContent()}</div>
-        <div className="flex justify-end px-32 font-extrabold"><a className="text-[#F02A2A] text-xl cursor-pointer" onClick={() => setReadMore(!readMore)}>{linkName}</a></div>
+        <div className="flex justify-end  px-12 md:px-32 lg:px-32 font-extrabold"><a className="text-[#F02A2A] text-xl cursor-pointer" onClick={() => setReadMore(!readMore)}>{linkName}</a></div>
       </div>
       
       <div className="px-6 py-2 md:px-32 md:py-5 lg:px-32 lg:py-5 bg-[#FDF3FC]">
