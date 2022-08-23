@@ -13,8 +13,8 @@ import { MetaMaskConnector } from 'wagmi/connectors/metaMask'
 import { WalletConnectConnector } from 'wagmi/connectors/walletConnect'
 
 const {chains, webSocketProvider, provider} = configureChains(
-    defaultChains,
-    [alchemyProvider({apiKey:""}), publicProvider()] 
+    [chain.goerli],
+    [ publicProvider()] 
 )
 
 
