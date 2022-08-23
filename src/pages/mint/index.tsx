@@ -1,10 +1,10 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useCallback} from "react";
 import { BlossomAddress} from "../../config/constants/address";
-import { useAccount, useConnect} from "wagmi"
+import { useAccount} from "wagmi"
 import { CHAIN_ID } from "../../config/constants/network";
 import { useApproveCallback, ApprovalState } from "../../hooks/useApproveCallback";
 import ConnectButton from "../../components/ConnectButton";
-import { useDerivedMintInfo, useUserDerivedInfo} from "../../hooks/useMintInfo";
+import { useDerivedMintInfo, useTotalMinted} from "../../hooks/useMintInfo";
 import useWhiteListMinting from "../../hooks/useWhitelistMintInfo";
 import usePublicMint from "../../hooks/usePublicMint";
 import Image from "next/image";
@@ -14,27 +14,25 @@ const Mint = () => {
   const [mintAmount, setMintAmount] = useState<number>(1)
   const [isETH, setIsETH] = useState<boolean>(true)
  
+ 
   const {isDisconnected } = useAccount();
   const {
     isWhitelistPeriod,
     ETHPublicPrice, 
     ETHWhitelistPrice, 
-    TotalMinted, 
     TotalSupply, 
     UsdtWhitelistPrice,
     publicUSDTPrice } = useDerivedMintInfo()
     const {onPublicMint} = usePublicMint(isETH, mintAmount.toString())
     const {onWhitelistMint} = useWhiteListMinting(isETH, mintAmount.toString())
+    const {totalMinted} = useTotalMinted()
     const BIG_TEN = new BigNumber(10);
     const ETHpublicMintAmount = new BigNumber(new BigNumber(mintAmount).times(ETHPublicPrice?.toString())).div(BIG_TEN.pow(18)).toString()
     const usdcpublicMintAmount = String(new BigNumber(mintAmount).times(publicUSDTPrice?.toString()).div(BIG_TEN.pow(6)))
     const ethWhitelistMintAmount = new BigNumber(new BigNumber(mintAmount).times(ETHWhitelistPrice?.toString())).div(new BigNumber(10).pow(18))
     const usdcWhitelistMintAmount = String(new BigNumber(mintAmount).times(UsdtWhitelistPrice?.toString()).div(BIG_TEN.pow(6)))
     const [approvalState, approve, pendingApproval] = useApproveCallback((isWhitelistPeriod ? usdcWhitelistMintAmount.toString(): usdcpublicMintAmount.toString()) , BlossomAddress[CHAIN_ID])
-    
-    useEffect(() => {
-      
-    }, [])
+
     
     return (
     <>
@@ -57,7 +55,7 @@ const Mint = () => {
           <div>
             <div className="flex flex-col items-center justify-center text-center">
               <p className="text-[#242424] opacity-50">Total Supply</p>
-              {TotalMinted && TotalSupply ? <span className="text-lg font-bold">{`${TotalMinted?.toString()}/${TotalSupply?.toString()}`}</span> :
+              {totalMinted && TotalSupply ? <span className="text-lg font-bold">{`${totalMinted}/${TotalSupply?.toString()}`}</span> :
               <div className="w-20 h-5 rounded bg-slate-200 animate-pulse"></div>}
             </div>
             <div className="flex justify-center my-6">

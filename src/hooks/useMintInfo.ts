@@ -1,4 +1,4 @@
-import { useContractInfiniteReads, useAccount } from "wagmi"
+import { useContractInfiniteReads, useAccount, useContractRead } from "wagmi"
 import { BlossomAddress } from "../config/constants/address"
 import { CHAIN_ID } from "../config/constants/network"
 import BlossomNftAbi from "../config/abi/Web3BridgeNft.json"
@@ -10,7 +10,6 @@ const contractConfig = {
     addressOrName:BlossomAddress[CHAIN_ID],
     contractInterface:BlossomNftAbi
 }
-
 
 
 export function useDerivedMintInfo ():{
@@ -41,7 +40,6 @@ export function useDerivedMintInfo ():{
             {...contractConfig, functionName:'totalSupply'}
         ],
     })
-
 
     isWhitelistPeriod = data?.pages[0][0]
     UsdtWhitelistPrice = data?.pages[0][1]
@@ -78,5 +76,16 @@ export function useUserDerivedInfo():{
     return{
         isWhitelisted, investorAmount, investorClaimed
     }
+}
+
+export function useTotalMinted(){
+    const {data} = useContractRead({
+        ...contractConfig,
+        functionName:'totalSupply',
+        watch:true
+    })
+
+    const totalMinted = data.toString()
+    return{totalMinted}
 }
 

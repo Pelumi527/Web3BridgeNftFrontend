@@ -7,6 +7,7 @@ import { MaxUint256 } from "@ethersproject/constants";
 import { parseEther} from "ethers/lib/utils";
 import { BIG_TEN } from "../utils/helper";
 import BigNumber from "bignumber.js";
+import { getErc20Contract} from "../utils/contractHelpers";
 
 
 export enum ApprovalState {
@@ -56,11 +57,12 @@ export function useApproveCallback(
         addressOrName: USDC[CHAIN_ID],
         contractInterface: erc20ABI,
         functionName:'allowance',
-        args:[address, BlossomAddress[CHAIN_ID]]
+        args:[address, BlossomAddress[CHAIN_ID]],
+        watch:true
     })
     
     const currentAllowance = data?.toString()
-    console.log(new BigNumber(currentAllowance).times(BIG_TEN.pow(18)))
+
 
     const approvalState:ApprovalState = useMemo(() => {
         if(!amountToApprove || !spender) return ApprovalState.UNKNOWN

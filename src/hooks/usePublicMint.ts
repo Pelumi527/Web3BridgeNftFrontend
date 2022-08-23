@@ -3,13 +3,11 @@ import { useCallback, useState} from "react"
 import { BlossomAddress, USDC } from "../config/constants/address"
 import { CHAIN_ID } from "../config/constants/network"
 import BlossomNftAbi from "../config/abi/Web3BridgeNft.json"
-import { usePrepareContractWrite, useContractWrite, useWaitForTransaction, useBalance, useAccount} from "wagmi"
+import { usePrepareContractWrite, useContractWrite, useWaitForTransaction, useBalance, useAccount ,useContractRead} from "wagmi"
 import { useDerivedMintInfo } from "./useMintInfo"
 import BigNumber from "bignumber.js"
 import toast, { ToastBar } from "react-hot-toast"
 import TransactionConfirmation from "../components/TransactionConfirmation"
-
-
 
 
 const usePublicMint = (isEth:boolean, amount:string) => {
@@ -18,7 +16,6 @@ const usePublicMint = (isEth:boolean, amount:string) => {
     const BIG_TEN = new BigNumber(10);
     let usdtPrice = String(new BigNumber(amount).times(publicUSDTPrice?.toString()).div(BIG_TEN.pow(6)))
     let value = new BigNumber(amount).times(ETHPublicPrice?.toString()).toString()
-    //let number = ethers.utils.formatEther()
     
     const ethBalance = useBalance({
         addressOrName:address
