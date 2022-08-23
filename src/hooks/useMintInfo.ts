@@ -85,7 +85,7 @@ export function useTotalMinted(){
         watch:true
     })
 
-    const totalMinted = data.toString()
+    const totalMinted = data?.toString()
     return{totalMinted}
 }
 
