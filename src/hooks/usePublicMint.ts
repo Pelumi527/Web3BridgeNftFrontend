@@ -1,13 +1,13 @@
 
 import { useCallback, useState} from "react"
-import { BlossomAddress, USDC } from "../../../config/constants/address"
-import { CHAIN_ID } from "../../../config/constants/network"
-import BlossomNftAbi from "../../../config/abi/Web3BridgeNft.json"
+import { BlossomAddress, USDC } from "../config/constants/address"
+import { CHAIN_ID } from "../config/constants/network"
+import BlossomNftAbi from "../config/abi/Web3BridgeNft.json"
 import { usePrepareContractWrite, useContractWrite, useWaitForTransaction, useBalance, useAccount} from "wagmi"
 import { useDerivedMintInfo } from "./useMintInfo"
 import BigNumber from "bignumber.js"
 import toast, { ToastBar } from "react-hot-toast"
-import TransactionConfirmation from "../../../components/TransactionConfirmation"
+import TransactionConfirmation from "../components/TransactionConfirmation"
 
 
 

@@ -1,12 +1,12 @@
 import { useCallback } from "react";
 import { useDerivedMintInfo, useUserDerivedInfo } from "./useMintInfo";
 import { usePrepareContractWrite, useContractWrite, useWaitForTransaction, useBalance, useAccount} from "wagmi";
-import { BlossomAddress, USDC } from "../../../config/constants/address"
-import { CHAIN_ID } from "../../../config/constants/network"
-import BlossomNftAbi from "../../../config/abi/Web3BridgeNft.json"
+import { BlossomAddress, USDC } from "../config/constants/address"
+import { CHAIN_ID } from "../config/constants/network"
+import BlossomNftAbi from "../config/abi/Web3BridgeNft.json"
 import BigNumber from "bignumber.js";
 import toast from "react-hot-toast";
-import TransactionConfirmation from "../../../components/TransactionConfirmation";
+import TransactionConfirmation from "../components/TransactionConfirmation";
 
 const useWhiteListMinting = (isEth:boolean, amount:string) => {
     const {address} = useAccount()

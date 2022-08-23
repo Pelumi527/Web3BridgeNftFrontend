@@ -4,9 +4,9 @@ import { useAccount, useConnect} from "wagmi"
 import { CHAIN_ID } from "../../config/constants/network";
 import { useApproveCallback, ApprovalState } from "../../hooks/useApproveCallback";
 import ConnectButton from "../../components/ConnectButton";
-import { useDerivedMintInfo, useUserDerivedInfo} from "./hooks/useMintInfo";
-import usePublicMint from "./hooks/usePublicMint";
-import useWhiteListMinting from "./hooks/useWhitelistMintInfo";
+import { useDerivedMintInfo, useUserDerivedInfo} from "../../hooks/useMintInfo";
+import useWhiteListMinting from "../../hooks/useWhitelistMintInfo";
+import usePublicMint from "../../hooks/usePublicMint";
 import Image from "next/image";
 import BigNumber from "bignumber.js";
 
