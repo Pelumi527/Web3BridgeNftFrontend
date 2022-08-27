@@ -43,20 +43,20 @@ const Mint = () => {
         <div className="md:grid md:grid-cols-2 lg:grid lg:grid-cols-2 md:p-6 lg:p-6">
           <div className="mb-12 md:mb-0 lg:mb-0 md:bg-[#FDF3FC] lg:bg-[#FDF3FC] px-4 py-8 container md:mx-auto md:flex md:flex-col ">
             <h1 className="mb-8 text-2xl font-bold text-center text-red-500 md:text-4xl">Blossoming Web3bridge NFT</h1>
-            <p className="mb-4 text-lg">
+            <p className="mb-4 text-xl">
               
             The minting is in two phases, we have the whitelist minting where our Alumni, present students and community members will be allowed to mint at 0.17 ETH or 300 USDC. 
             </p>
-            <p className="mb-4 text-lg">
+            <p className="mb-4 text-xl">
             We then have the public minting where the public will allowed to mint at 0.27 ETH or 500 USDC
             </p>
-            <p className="mb-4 text-lg">
+            <p className="mb-4 text-xl">
             The NFT has a placeholder image which will be revealed at the end of the whitelist mint.
             </p>
-            <p className="mb-4 text-lg">
+            <p className="mb-4 text-xl">
             Minting Blossoming Web3bridge supports Web3bridge’s vision and growth.
             </p>
-            <p className="mb-4 text-lg">
+            <p className="mb-4 text-xl">
             Click the mint button and be a part of a blossoming community
             </p>
           </div>
