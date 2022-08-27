@@ -53,7 +53,6 @@ export function useDerivedMintInfo ():{
 
     
 
-    console.log(publicEth)
 
     isWhitelistPeriod = data?.pages[0][0]
     UsdtWhitelistPrice = data?.pages[0][1]

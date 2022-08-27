@@ -37,7 +37,7 @@ const usePublicMint = (isEth:boolean, amount:string) => {
         onError(error){
             console.log(error.message)
         },
-        chainId: 5,
+        chainId: CHAIN_ID,
     })
     const {data, write} = useContractWrite({
         ...config,
