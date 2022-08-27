@@ -19,10 +19,10 @@ const useWhiteListMinting = (isEth:boolean, amount:string) => {
     const {config:whiteListConfig} = usePrepareContractWrite({
         addressOrName: BlossomAddress[CHAIN_ID],
         contractInterface: BlossomNftAbi,
-        functionName:investorAmount?.gt(0) ?'InvestorWhiteListMint':'WhitlistMint',
-        args: investorAmount?.gt(0) ? []:[amount, !isEth],
+        functionName:investorAmount?.isGreaterThan(0) ?'InvestorWhiteListMint':'WhitlistMint',
+        args: investorAmount?.isGreaterThan(0) ? []:[amount, !isEth],
         overrides:{
-            value:investorAmount?.gt(0) || !isEth ? '0': value 
+            value:investorAmount?.isGreaterThan(0) || !isEth ? '0': value 
         }
     })
    
@@ -39,8 +39,12 @@ const useWhiteListMinting = (isEth:boolean, amount:string) => {
         token:USDC[CHAIN_ID]
     })
 
+    console.log()
+
+    console.log( (isEth && new BigNumber(ethBalance?.data?.formatted).isLessThan(new BigNumber(value).div(new BigNumber(10).pow(18))) && isWhitelisted == true, "next"))
+
     const onWhitelistMint = useCallback(async()=>{
-        if(!isWhitelisted || !investorAmount.gt(0)){
+        if(isWhitelisted == false && investorAmount.isLessThanOrEqualTo(0)){
             toast.error('Account not whitelisted', {
                 duration:6000,
                 position: "top-right",
@@ -54,21 +58,23 @@ const useWhiteListMinting = (isEth:boolean, amount:string) => {
                 duration:6000,
                 position: "top-right"
             })
+            return
         }
 
         if(isWhitelisted &&  new BigNumber(amount.toString()).gt(whitelistAmount?.toString())){
             toast.error(`Cannot mint more than ${whitelistAmount?.toString()}`)
+            return
         }
 
-        if(isEth && new BigNumber(ethBalance?.data?.formatted).isLessThan(new BigNumber(value).div(new BigNumber(10).pow(18))) || 
-        !investorAmount.gt(0)){
-            toast.error(`InSufficient ${ethBalance?.data?.symbol} balance`, {
+        if( (isEth && new BigNumber(ethBalance?.data?.formatted).isLessThan(new BigNumber(value).div(new BigNumber(10).pow(18)))) && isWhitelisted == true ){
+            toast.error(`InSufficient balance`, {
                 position: "top-right",
                 duration:6000     
             })
+            return
         }
 
-        if(!isEth && new BigNumber(tokenBalance?.data?.formatted).isLessThan(new BigNumber(usdtPrice)) || !investorAmount.gt(0)){
+        if((!isEth && new BigNumber(tokenBalance?.data?.formatted).isLessThan(new BigNumber(usdtPrice))) && isWhitelisted == true ){
             toast.error(`InSufficient ${tokenBalance?.data?.symbol}  Balance `,{
                 position: "top-right",
                 duration:6000
@@ -78,15 +84,12 @@ const useWhiteListMinting = (isEth:boolean, amount:string) => {
 
         return write()
 
-    },[isEth, isWhitelisted, ethBalance, value, usdtPrice, tokenBalance, write, investorAmount, investorClaimed, whitelistClaimed])
+    },[isEth, isWhitelisted, ethBalance, value, usdtPrice, tokenBalance, write, investorAmount, investorClaimed, whitelistClaimed, whitelistAmount, amount])
 
     const {isSuccess} = useWaitForTransaction({
         hash: data?.hash,
         onSuccess(data) {
-            toast.success(TransactionConfirmation(data.transactionHash)), {
-                duration:10000,
-                position:"top-right"
-            }
+            TransactionConfirmation(data.transactionHash)  
         },
     
     })

@@ -2,7 +2,7 @@ import { useContractInfiniteReads, useAccount, useContractRead } from "wagmi"
 import { BlossomAddress } from "../config/constants/address"
 import { CHAIN_ID } from "../config/constants/network"
 import BlossomNftAbi from "../config/abi/Web3BridgeNft.json"
-import { BigNumber } from "ethers"
+import BigNumber from "bignumber.js"
 
 const contractConfig = {
     addressOrName:BlossomAddress[CHAIN_ID],
@@ -67,27 +67,54 @@ export function useDerivedMintInfo ():{
 
 export function useUserDerivedInfo():{
     isWhitelisted:boolean,
-    investorAmount:BigNumber,
+    investorAmount:BigNumber
     investorClaimed:boolean
     whitelistClaimed:boolean
 }{
+
     const {address} = useAccount()
-    
-   
-    const{data} = useContractInfiniteReads({
-        cacheKey:'userInfo',
-        contracts:() => [
-            {...contractConfig, functionName:'checkWhitelist', args:[address, 1]},
-            {...contractConfig, functionName:'investorsMint', args:[address]},
-            {...contractConfig, functionName:'investorsWhitelistClaimed', args:[address]},
-            {...contractConfig, functionName:'whitelistClaimed', args:[address]}
-        ]
+
+
+    const {data:whiteListStatus} = useContractRead({
+        ...contractConfig,
+        functionName:'checkWhitelist',
+        args:[address, 1],
+        watch:true
     })
 
-    let isWhitelisted = data?.pages[0][0]
-    let investorAmount = data?.pages[0][1]
-    let investorClaimed = data?.pages[0][2]
-    let whitelistClaimed = data?.pages[0][3]
+    const {data:investorsClaimStatus} = useContractRead({
+        ...contractConfig,
+        functionName:'investorsWhitelistClaimed',
+        args:[address],
+        watch:true
+    })
+
+    const {data:whitelistClaimStatus} = useContractRead({
+        ...contractConfig,
+        functionName:'whitelistClaimed',
+        args:[address],
+        watch:true
+    })
+
+    const {data:investorMintAmount} = useContractRead({
+        ...contractConfig,
+        functionName:'investorsMint',
+        args:[address],
+        watch:true
+    })
+    
+   
+  
+
+    
+
+    let isWhitelisted = Boolean(whiteListStatus)
+    let investorAmount = new BigNumber(investorMintAmount?.toString())
+    let investorClaimed = Boolean(investorsClaimStatus)
+    let whitelistClaimed = Boolean(whitelistClaimStatus)
+    
+
+    
 
     return{
         isWhitelisted, investorAmount, investorClaimed, whitelistClaimed
