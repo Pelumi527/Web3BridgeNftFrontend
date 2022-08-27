@@ -12,7 +12,11 @@ import {shortenAddress} from "../../utils/helper"
 
 
 const ConnectButton = () => {
-    const { address, connector, isConnected, isDisconnected} = useAccount()
+    const { address, isConnected} = useAccount({
+      onConnect(){
+        toast.success(`Connected`)
+      }
+    })
     // const { data: ensAvatar } = useEnsAvatar({ addressOrName: address })
     // const { data: ensName } = useEnsName({ address })
     const { disconnect } = useDisconnect()
@@ -31,12 +35,6 @@ const ConnectButton = () => {
         setIsOpen(true)
       }
 
-      useEffect(() => {
-        if(status == "success"){
-          toast.success('Connected')
-        }
-        console.log(status)
-      }, [status])
       
       return (
         <>

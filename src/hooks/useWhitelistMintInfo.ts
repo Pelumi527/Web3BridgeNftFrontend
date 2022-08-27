@@ -10,8 +10,8 @@ import TransactionConfirmation from "../components/TransactionConfirmation";
 
 const useWhiteListMinting = (isEth:boolean, amount:string) => {
     const {address} = useAccount()
-    const {UsdtWhitelistPrice, ETHWhitelistPrice,} = useDerivedMintInfo()
-    const {investorClaimed, investorAmount, isWhitelisted} = useUserDerivedInfo()
+    const {UsdtWhitelistPrice, ETHWhitelistPrice,whitelistAmount} = useDerivedMintInfo()
+    const {investorClaimed, investorAmount, isWhitelisted, whitelistClaimed} = useUserDerivedInfo()
     const BIG_TEN = new BigNumber(10);
     let usdtPrice = String(new BigNumber(amount).times(UsdtWhitelistPrice?.toString()).div(BIG_TEN.pow(6)))
     let value = new BigNumber(amount).times(ETHWhitelistPrice?.toString()).toString()
@@ -48,11 +48,16 @@ const useWhiteListMinting = (isEth:boolean, amount:string) => {
             return
         }
 
-        if(investorClaimed){
+
+        if(investorClaimed || whitelistClaimed){
             toast('Already Claimed Your NFT', {
                 duration:6000,
                 position: "top-right"
             })
+        }
+
+        if(isWhitelisted &&  new BigNumber(amount.toString()).gt(whitelistAmount?.toString())){
+            toast.error(`Cannot mint more than ${whitelistAmount?.toString()}`)
         }
 
         if(isEth && new BigNumber(ethBalance?.data?.formatted).isLessThan(new BigNumber(value).div(new BigNumber(10).pow(18))) || 
@@ -73,7 +78,7 @@ const useWhiteListMinting = (isEth:boolean, amount:string) => {
 
         return write()
 
-    },[isEth, isWhitelisted, ethBalance, value, usdtPrice, tokenBalance, write, investorAmount, investorClaimed])
+    },[isEth, isWhitelisted, ethBalance, value, usdtPrice, tokenBalance, write, investorAmount, investorClaimed, whitelistClaimed])
 
     const {isSuccess} = useWaitForTransaction({
         hash: data?.hash,

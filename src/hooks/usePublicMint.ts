@@ -1,12 +1,12 @@
 
-import { useCallback, useState} from "react"
+import { useCallback} from "react"
 import { BlossomAddress, USDC } from "../config/constants/address"
 import { CHAIN_ID } from "../config/constants/network"
 import BlossomNftAbi from "../config/abi/Web3BridgeNft.json"
 import { usePrepareContractWrite, useContractWrite, useWaitForTransaction, useBalance, useAccount ,useContractRead} from "wagmi"
 import { useDerivedMintInfo } from "./useMintInfo"
 import BigNumber from "bignumber.js"
-import toast, { ToastBar } from "react-hot-toast"
+import toast from "react-hot-toast"
 import TransactionConfirmation from "../components/TransactionConfirmation"
 
 
@@ -54,7 +54,7 @@ const usePublicMint = (isEth:boolean, amount:string) => {
 
     const onPublicMint = useCallback(async ():Promise<void> => {
         if(new BigNumber(amount).isEqualTo(0)){
-            toast.error(`Input a mius`)
+            toast.error(`Input a valid mint amount`)
         }
         if(isEth && new BigNumber(ethBalance.data.formatted).isLessThan(new BigNumber(value).div(new BigNumber(10).pow(18))) ){
             toast.error('InSufficient Balance',{
@@ -78,10 +78,7 @@ const usePublicMint = (isEth:boolean, amount:string) => {
     const {isSuccess, isError, isLoading} = useWaitForTransaction({
         hash: data?.hash,
         onSuccess(data){
-            toast.success(TransactionConfirmation(data.transactionHash)),{
-                duration:10000,
-                position:"top-right"
-            }
+            TransactionConfirmation(data.transactionHash)
         },
     })
     

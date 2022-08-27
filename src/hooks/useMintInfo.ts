@@ -2,9 +2,7 @@ import { useContractInfiniteReads, useAccount, useContractRead } from "wagmi"
 import { BlossomAddress } from "../config/constants/address"
 import { CHAIN_ID } from "../config/constants/network"
 import BlossomNftAbi from "../config/abi/Web3BridgeNft.json"
-import { Result } from "ethers/lib/utils"
 import { BigNumber } from "ethers"
-import { createContext} from "react"
 
 const contractConfig = {
     addressOrName:BlossomAddress[CHAIN_ID],
@@ -16,46 +14,63 @@ export function useDerivedMintInfo ():{
     isWhitelistPeriod:boolean,
     UsdtWhitelistPrice:BigNumber,
     publicUSDTPrice:BigNumber,
-    ETHWhitelistPrice:BigNumber,
+    ETHWhitelistPrice:String
     TotalSupply:BigNumber,
     TotalMinted:BigNumber,
-    ETHPublicPrice:BigNumber
+    ETHPublicPrice:String
+    whitelistAmount:BigNumber
 } {
     let isWhitelistPeriod: boolean
     let UsdtWhitelistPrice:BigNumber
     let publicUSDTPrice:BigNumber
-    let ETHWhitelistPrice:BigNumber
-    let ETHPublicPrice:BigNumber
+    let ETHWhitelistPrice:String
+    let ETHPublicPrice:String
     let TotalSupply:BigNumber
     let TotalMinted:BigNumber
+    let whitelistAmount:BigNumber
     const {data} = useContractInfiniteReads({
-        cacheKey: 'blossomState',
+        cacheKey: 'blossomState2',
         contracts: () => [
             {...contractConfig, functionName:'whitelistMintEnabled'},
             {...contractConfig, functionName:'costWhitelist'},
             {...contractConfig, functionName:'costPublicSale'},
-            {...contractConfig, functionName:'etherCostpublic'},
-            {...contractConfig, functionName:'etherCostWhitelist'},
             {...contractConfig, functionName:'TOTAL_COLLECTION_SUPPLY'},
-            {...contractConfig, functionName:'totalSupply'}
+            {...contractConfig, functionName:'whitelistAmount'}
         ],
     })
+
+    const {data:publicEth} = useContractRead({
+        ...contractConfig,
+        functionName:'calPublicPriceEth',
+        watch:true
+    })
+
+    const {data:whitelistEth} = useContractRead({
+        ...contractConfig,
+        functionName:'calWhitelistPriceEth',
+        watch:true
+    })
+
+    
+
+    console.log(publicEth)
 
     isWhitelistPeriod = data?.pages[0][0]
     UsdtWhitelistPrice = data?.pages[0][1]
     publicUSDTPrice = data?.pages[0][2]
-    ETHPublicPrice = data?.pages[0][3]
-    ETHWhitelistPrice = data?.pages[0][4]
-    TotalSupply = data?.pages[0][5]
-    TotalMinted = data?.pages[0][6]
+    whitelistAmount = data?.pages[0][4]
+    TotalSupply = data?.pages[0][3]
+    ETHPublicPrice = publicEth?.toString()
+    ETHWhitelistPrice = whitelistEth?.toString()
 
-    return {isWhitelistPeriod, UsdtWhitelistPrice, publicUSDTPrice, ETHPublicPrice, ETHWhitelistPrice, TotalMinted, TotalSupply}
+    return {isWhitelistPeriod, UsdtWhitelistPrice, publicUSDTPrice, ETHPublicPrice, ETHWhitelistPrice, TotalMinted, TotalSupply, whitelistAmount}
 }
 
 export function useUserDerivedInfo():{
     isWhitelisted:boolean,
     investorAmount:BigNumber,
     investorClaimed:boolean
+    whitelistClaimed:boolean
 }{
     const {address} = useAccount()
     
@@ -65,16 +80,18 @@ export function useUserDerivedInfo():{
         contracts:() => [
             {...contractConfig, functionName:'checkWhitelist', args:[address, 1]},
             {...contractConfig, functionName:'investorsMint', args:[address]},
-            {...contractConfig, functionName:'investorsWhitelistClaimed', args:[address]}
+            {...contractConfig, functionName:'investorsWhitelistClaimed', args:[address]},
+            {...contractConfig, functionName:'whitelistClaimed', args:[address]}
         ]
     })
 
     let isWhitelisted = data?.pages[0][0]
     let investorAmount = data?.pages[0][1]
     let investorClaimed = data?.pages[0][2]
+    let whitelistClaimed = data?.pages[0][3]
 
     return{
-        isWhitelisted, investorAmount, investorClaimed
+        isWhitelisted, investorAmount, investorClaimed, whitelistClaimed
     }
 }
 

@@ -4,10 +4,8 @@ import { BlossomAddress, USDC } from "../config/constants/address";
 import { CHAIN_ID } from "../config/constants/network";
 import { toast } from "react-hot-toast";
 import { MaxUint256 } from "@ethersproject/constants";
-import { parseEther} from "ethers/lib/utils";
 import { BIG_TEN } from "../utils/helper";
 import BigNumber from "bignumber.js";
-import { getErc20Contract} from "../utils/contractHelpers";
 
 
 export enum ApprovalState {

@@ -9,7 +9,7 @@ interface ADDRESS {
 export const BlossomAddress:ADDRESS = {
     [chainId.rinkeby] : '0x237F59667d93d58698ca1576C0CC7B64f3A8c53a',
     [chainId.mainnet] : "",
-    [chainId.goerli]  : '0xA1DE5390c124B0445AA901367eca5c77521108C2' 
+    [chainId.goerli]  : '0x69ee093cBd7502D4cCeC567dc67BF22C71Ff0B0c' 
 }
 
 export const USDC: ADDRESS = {
