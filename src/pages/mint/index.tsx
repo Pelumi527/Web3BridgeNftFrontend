@@ -24,7 +24,7 @@ const Mint = () => {
     whitelistAmount} = useDerivedMintInfo()
     const {onPublicMint} = usePublicMint(isETH, mintAmount.toString())
     const {onWhitelistMint} = useWhiteListMinting(isETH, mintAmount.toString())
-    const {isWhitelisted} = useUserDerivedInfo()
+    const {isWhitelisted, investorAmount } = useUserDerivedInfo()
     const {totalMinted} = useTotalMinted()
     const BIG_TEN = new BigNumber(10);
     const ETHpublicMintAmount = new BigNumber(new BigNumber(mintAmount).times(ETHPublicPrice?.toString())).div(BIG_TEN.pow(18))
@@ -110,6 +110,7 @@ const Mint = () => {
             </div>
             <div className="flex items-center justify-center w-5/6 p-4 mx-auto md:w-2/3 lg:w-2/3">
             {isWhitelistPeriod && isWhitelisted && new BigNumber(mintAmount.toString()).gt(whitelistAmount?.toString()) ? <span className="text-center text-red-500">Cannot mint more than {whitelistAmount?.toString()} </span>:<span></span>}
+            {isWhitelistPeriod && investorAmount.isGreaterThan(0) && new BigNumber(mintAmount.toString()).gt(investorAmount) ? <span className="text-center text-red-500">{`Cannot mint more than ${investorAmount.toString()}`}</span> :<span></span> }
             </div>
             <div className=" bg-[#FDF3FC] flex justify-between items-center p-4 w-5/6 md:w-2/3 lg:w-2/3 mx-auto">
               {isWhitelistPeriod ? 

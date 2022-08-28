@@ -60,8 +60,8 @@ export default function WhiteListConfirmation() {
                     WhiteList Status
                   </Dialog.Title>
                   <div className="mt-2">
-                    <p className="text-sm text-center text-gray-500">
-                      {isWhitelisted ? 'Your wallet has been WhiteListed':'Sorry, Your Wallet has not been Whitelisted'}
+                    <p className="text-sm text-center text-gray-800">
+                      {isWhitelisted == true ? 'Your wallet has been Whitelisted':'Sorry, Your Wallet has not been Whitelisted'}
                     </p>
                   </div>
 

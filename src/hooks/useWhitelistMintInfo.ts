@@ -66,6 +66,11 @@ const useWhiteListMinting = (isEth:boolean, amount:string) => {
             return
         }
 
+        if(investorAmount.isGreaterThan(0) && !new BigNumber(amount).isEqualTo(investorAmount)){
+            toast.error(`Must mint ${investorAmount.toString()}`)
+            return
+        }
+
         if( (isEth && new BigNumber(ethBalance?.data?.formatted).isLessThan(new BigNumber(value).div(new BigNumber(10).pow(18)))) && isWhitelisted == true ){
             toast.error(`InSufficient balance`, {
                 position: "top-right",
