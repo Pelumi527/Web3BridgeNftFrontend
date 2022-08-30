@@ -52,7 +52,7 @@ export default function WhiteListConfirmation() {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="w-full max-w-md p-6 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
+                <Dialog.Panel className="w-full max-w-md p-6 overflow-hidden text-left align-middle transition-all transform bg-pink-300 shadow-xl rounded-2xl">
                   <Dialog.Title
                     as="h3"
                     className="text-lg font-medium leading-6 text-gray-900"
@@ -60,8 +60,8 @@ export default function WhiteListConfirmation() {
                     WhiteList Status
                   </Dialog.Title>
                   <div className="mt-2">
-                    <p className="text-sm text-center text-gray-800">
-                      {isWhitelisted == true ? 'Your wallet has been Whitelisted':'Sorry, Your Wallet has not been Whitelisted'}
+                    <p className="text-lg text-center text-gray-800">
+                      {isWhitelisted == true ? 'Your wallet has been whitelisted':'Sorry, Your wallet has not been whitelisted'}
                     </p>
                   </div>
 

@@ -82,8 +82,6 @@ export function useUserDerivedInfo():{
         watch:true
     })
 
-    console.log(whiteListStatus, "ggggg")
-
     const {data:investorsClaimStatus} = useContractRead({
         ...contractConfig,
         functionName:'investorsWhitelistClaimed',
