@@ -23,11 +23,15 @@ const useWhiteListMinting = (isEth:boolean, amount:string) => {
         args: investorAmount?.isGreaterThan(0) ? []:[amount, !isEth],
         overrides:{
             value:investorAmount?.isGreaterThan(0) || !isEth ? '0': value 
-        }
+        },
+        onError(err) {
+            console.log(err.message)
+        },
     })
    
     const {write, data} = useContractWrite({
-        ...whiteListConfig
+        ...whiteListConfig,
+       
     })
 
     const ethBalance = useBalance({
@@ -39,9 +43,6 @@ const useWhiteListMinting = (isEth:boolean, amount:string) => {
         token:USDC[CHAIN_ID]
     })
 
-    console.log()
-
-    console.log( (isEth && new BigNumber(ethBalance?.data?.formatted).isLessThan(new BigNumber(value).div(new BigNumber(10).pow(18))) && isWhitelisted == true, "next"))
 
     const onWhitelistMint = useCallback(async()=>{
         if(isWhitelisted == false && investorAmount.isLessThanOrEqualTo(0)){

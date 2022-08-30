@@ -55,6 +55,7 @@ const usePublicMint = (isEth:boolean, amount:string) => {
     const onPublicMint = useCallback(async ():Promise<void> => {
         if(new BigNumber(amount).isEqualTo(0)){
             toast.error(`Input a valid mint amount`)
+            return
         }
         if(isEth && new BigNumber(ethBalance.data.formatted).isLessThan(new BigNumber(value).div(new BigNumber(10).pow(18))) ){
             toast.error('InSufficient Balance',{
@@ -82,7 +83,7 @@ const usePublicMint = (isEth:boolean, amount:string) => {
         },
     })
     
-    return {onPublicMint, isSuccess ,isError, data} // create custom toast
+    return {onPublicMint, isSuccess ,isError, data} 
 }
 
 export default usePublicMint

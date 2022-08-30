@@ -77,10 +77,12 @@ export function useUserDerivedInfo():{
 
     const {data:whiteListStatus} = useContractRead({
         ...contractConfig,
-        functionName:'checkWhitelist',
-        args:[address, 1],
+        functionName:'whitelisted',
+        args: [address],
         watch:true
     })
+
+    console.log(whiteListStatus, "ggggg")
 
     const {data:investorsClaimStatus} = useContractRead({
         ...contractConfig,

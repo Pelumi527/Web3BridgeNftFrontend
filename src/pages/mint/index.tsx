@@ -10,6 +10,7 @@ import usePublicMint from "../../hooks/usePublicMint";
 import Image from "next/image";
 import BigNumber from "bignumber.js";
 
+
 const Mint = () => {
   const [mintAmount, setMintAmount] = useState<number>(1)
   const [isETH, setIsETH] = useState<boolean>(true)
