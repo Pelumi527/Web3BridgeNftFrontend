@@ -26,7 +26,7 @@ const Header = () => {
 
 
 let dt1 =  Date.now();
-let dt2 = new Date("2022,08,31");
+let dt2 = new Date("2022,09,01");
 
 const result = diff_miliseconds(dt2,dt1)
 
@@ -48,7 +48,7 @@ const result = diff_miliseconds(dt2,dt1)
 
       //Do you reach the end?
       if (delta > wantedDelay) {
-        //Yes we clear uour saved end date
+        //Yes we clear our saved end date
         // @ts-ignore
         if (localStorage.getItem("end_date").length > 0)
           localStorage.removeItem("end_date");
@@ -91,7 +91,7 @@ const result = diff_miliseconds(dt2,dt1)
   };
 
   return (
-    <div className="box-border fixed z-50 flex items-center   md:space-x-0 lg:space-x-0 justify-between w-full px-5 py-5  mx-auto font-bold bg-pink-100 md:px-10 md:py-6 lg:px-10 lg:py-6">
+    <div className="box-border fixed z-50 flex items-center justify-between w-full px-5 py-5 mx-auto font-bold bg-pink-100 md:space-x-0 lg:space-x-0 md:px-10 md:py-6 lg:px-10 lg:py-6">
       <Link   href="/home">
         <a className="hidden md:inline-flex lg:inline-flex">
           {" "}
@@ -104,7 +104,7 @@ const result = diff_miliseconds(dt2,dt1)
         </a>
       </Link>
       <Link  href="/home">
-        <a className="md:hidden mr-2 lg:hidden">
+        <a className="mr-2 md:hidden lg:hidden">
           {" "}
           <Image
             src="/images/logo2.png"
@@ -114,9 +114,9 @@ const result = diff_miliseconds(dt2,dt1)
           />
         </a>
       </Link>
-      <div className="flex  items-center justify-between md:flex-row">
+      <div className="flex items-center justify-between md:flex-row">
         <div>
-          <Countdown date={data.date + data.delay}
+          <Countdown date={data.date + 88368422}
           
         renderer={renderer} 
         onStart={(delta) => {
