@@ -46,10 +46,10 @@ const Mint = () => {
             <h1 className="mb-8 text-2xl font-bold text-center text-red-500 md:text-4xl">Blossoming Web3bridge NFT</h1>
             <p className="mb-4 text-xl">
               
-            The minting is in two phases, we have the whitelist minting where our Alumni, present students and community members will be allowed to mint at 0.17 ETH or 300 USDC. 
+            The minting is in two phases, we have the whitelist minting where our Alumni, present students and community members will be allowed to mint at {ethWhitelistMintAmount.toFormat(2)} ETH or 300 USDC. 
             </p>
             <p className="mb-4 text-xl">
-            We then have the public minting where the public will allowed to mint at 0.27 ETH or 500 USDC
+            We then have the public minting where the public will allowed to mint at {ETHpublicMintAmount.toFormat(2)} or 500 USDC
             </p>
             <p className="mb-4 text-xl">
             The NFT has a placeholder image which will be revealed at the end of the whitelist mint.
