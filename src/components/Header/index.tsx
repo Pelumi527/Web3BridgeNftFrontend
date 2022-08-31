@@ -26,10 +26,10 @@ const Header = () => {
 
 
 let dt1 =  Date.now();
-let dt2 = new Date("2022,09,01");
-
+let dt2 = new Date("September 01, 22 00:00:00").getTime();
 const result = diff_miliseconds(dt2,dt1)
 
+console.log(result)
 
   const [data, setData] = useState({date: Date.now(), delay:result})
   let wantedDelay = result;
@@ -116,7 +116,7 @@ const result = diff_miliseconds(dt2,dt1)
       </Link>
       <div className="flex items-center justify-between md:flex-row">
         <div>
-          <Countdown date={data.date + 88368422}
+          <Countdown date={data.date + data.delay}
           
         renderer={renderer} 
         onStart={(delta) => {
