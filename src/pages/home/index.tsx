@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import Image from 'next/image'
-import Link from 'next/link'
+import WhiteListConfirmation from '../../components/WhitelistConfirmation'
 
 const Home = () => {
 
@@ -10,14 +10,14 @@ const Home = () => {
   const extraContent = () => {
     return(
       <div className="px-8 md:px-32 lg:px-32">
-        <p className="text-xl ">
+        <p className="text-lg ">
           All the above provisions were made in order to achieve the grooming of well grounded developers who are able to contribute to the ecosystem globally and locally.
           Web3bridge has ran six successful cohorts with the seventh one currently on and funded by Polygon and has received over 2000 applications from countries like Nigeria, Kenya, South Africa, Uganda, Ghana, Zimbabwe and have graduated over 150 developers who are actively working in the ecosystem as developers, developer advocates, ambassadors and product managers and has two products in active development.
           <p>As we continue to grow and scale, we are launching an NFT mint event to raise funds for Web3bridge to enable us to train more developers, fund development of more products and build the Web3bridge Campus.</p>
           We have an artwork drawn on canvas which tells the story of Web3bridge; the past, present and the future we foresee.
           We will be minting a thousand pieces of the art and will be distributed as follows : 
         </p>
-        <ul className="mt-8 text-xl list-disc">
+        <ul className="mt-8 text-lg list-disc">
           <li><p>15% to angel Investors</p> </li>
           <li><p>5% reserved for Web3bridge team</p></li>
           <li> <p>20% for Web3bridge community (Alumni, present students and community members)</p></li>
@@ -26,19 +26,21 @@ const Home = () => {
     </div>
     )
   }
+
   return (
+    <>
     <section className="w-full bg-[#FDF3FC] mt-20 md:mt-20 lg:pt-20 "> 
       <div className="md:grid lg:grid w-full h-full pt-20 md:pt-20 lg:pt-0 md:grid-cols-1 lg:grid-cols-3 px-6 md:px-12 lg:px-12 bg-[#FDF3FC]">
-        <div className="flex flex-col items-center justify-center col-span-2 mb-12 md:mb-0 lg:mb-0 md:px-20 lg:px-15">
+        <div className="flex flex-col items-start justify-start col-span-2 mb-12 md:mb-0 lg:mb-0 md:px-20 lg:px-15">
             <h1 className="mb-8 text-3xl font-bold text-center text-red-500 md:text-5xl">Blossoming Web3bridge NFT</h1>
-            <p className="mb-8 text-xl">
+            <p className="mb-8 text-xl font-light">
                 
               Blossoming Web3bridge is a 4 by 5 feet art drawn on canvass. The art tells the story of 
               Web3bridge grooming developers from Africa and are all over the world literally or remotely 
               contributing to the growth of the blockchain ecosystem. 
 
             </p>
-            <p className='mb-8 text-xl'>
+            <p className='mb-8 text-xl font-light'>
               The art’s major components include the globe, with Africa very pronounced, a growing and 
               fruit-bearing fig tree, and fruits on the tree shown as Web3bridge logo dropping across the globe. Each dropping 
               fruit represents Web3bridge Alumnis that are already in the global ecosystem contributing while the
@@ -46,9 +48,8 @@ const Home = () => {
               are yet to come out of the program.
             </p>
             <div className="flex">
-
               <button className="bg-[#F02A2A] text-white py-1 px-3 md:py-3 md:px-9 lg:py-3 lg:px-9 rounded-md hover:text-[#F02A2A] hover:bg-[#FDF3FC] mr-8 hover:border-[#F02A2A] hover:border-2"><a href="https://forms.gle/Ym289phXU6N98Kay6" target="_blank" rel="noopener noreferrer" >Get WhiteListed</a></button>
-              <button disabled className="bg-[#FDF3FC] text-[#F02A2A] py-1 px-3 md:py-3 md:px-9 lg:py-3 lg:px-9 rounded-md border-2 border-[#F02A2A] hover:bg-[#F02A2A] hover:text-white cursor-not-allowed">Confirm Whitelist</button>
+              <WhiteListConfirmation/>
             </div>
         </div>
         <div className="hidden lg:block md:hidden">
@@ -67,7 +68,7 @@ const Home = () => {
         Web3bridge has focused on training Ethereum developers in Africa and have supported these developers to 
         find their firm footing in the development ecosystem. 
         </p>
-        <p className="px-8 py-2 text-xl md:px-32 md:py-5 lg:px-32 lg:py-5"> In a bid to help Africans coming into development overcome identified numbers of barriers, Web3bridge offers</p>
+        <p className="px-8 py-2 text-lg md:px-32 md:py-5 lg:px-32 lg:py-5"> In a bid to help Africans coming into development overcome identified numbers of barriers, Web3bridge offers</p>
         <ul className="px-8 mb-5 text-lg list-disc md:px-32 lg:px-32">
           <li><p>the 16 weeks long training entirely free for all participants</p></li>
           <li><p>provide a physical facility in Lagos where developers are housed and catered for for free</p></li>
@@ -180,6 +181,7 @@ const Home = () => {
         </div>
       </div>
   </section>
+  </>
   )
 }
 

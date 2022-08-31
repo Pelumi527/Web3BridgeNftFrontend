@@ -70,7 +70,7 @@ console.log(result)
       // Render a completed state
       return (
         <Link className="no-underline" href="/mint">
-          <button className="px-2 py-2 text-sm font-bold text-white no-underline bg-red-500 rounded-md md:px-6 md:py-4 lg:px-6 lg:py-4 hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 mx-7">
+          <button className="px-2 py-2 text-sm font-bold text-[#F02A2A] border-2 no-underline border-[#F02121] rounded-md md:px-6 md:py-4 lg:px-6 lg:py-4 hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 mx-7">
             Mint NFT
           </button>
         </Link>

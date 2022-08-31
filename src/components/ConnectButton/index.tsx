@@ -12,7 +12,11 @@ import {shortenAddress} from "../../utils/helper"
 
 
 const ConnectButton = () => {
-    const { address, connector, isConnected, isDisconnected} = useAccount()
+    const { address, isConnected} = useAccount({
+      onConnect(){
+        toast.success(`Connected`)
+      }
+    })
     // const { data: ensAvatar } = useEnsAvatar({ addressOrName: address })
     // const { data: ensName } = useEnsName({ address })
     const { disconnect } = useDisconnect()
@@ -23,17 +27,6 @@ const ConnectButton = () => {
  
     const [isOpen, setIsOpen] = useState(false)
 
-    const notify = () => {
-     if(!isConnected){
-      toast.success('Connected')
-      return
-     }
-     if(!isDisconnected){
-      toast.success('Disconnected')
-      return
-     }
-    }
-
     function closeModal() {
         setIsOpen(false)
       }
@@ -42,12 +35,6 @@ const ConnectButton = () => {
         setIsOpen(true)
       }
 
-      useEffect(() => {
-        if(status == "success"){
-          toast.success('Connected')
-        }
-        console.log(status)
-      }, [status])
       
       return (
         <>
@@ -56,7 +43,7 @@ const ConnectButton = () => {
              <div>
                <Menu as="div" className="relative inline-block text-left">
                 <div>
-                  <Menu.Button className="hidden md:inline-flex lg:inline-flex px-4 py-4  text-white bg-black rounded-md">
+                  <Menu.Button className="hidden px-4 py-4 text-white bg-black rounded-md md:inline-flex lg:inline-flex">
                     <p>{address?.substring(0, 6)}...{address?.substring(30, 36)}...{address?.substring(42-4)}</p>
                     <ChevronDownIcon
                         className="w-5 h-5 ml-2 -mr-1 text-violet-200 hover:text-violet-100"
@@ -64,7 +51,7 @@ const ConnectButton = () => {
                       />
                   </Menu.Button>
 
-                  <Menu.Button className="inline-flex px-4 btn_cta py-4 block md:hidden lg:hiddeb text-white bg-black rounded-md">
+                  <Menu.Button className="inline-flex block px-4 py-4 text-white bg-black rounded-md btn_cta md:hidden lg:hiddeb">
                     <p>{shortenAddress(address)}</p>
                     <ChevronDownIcon
                         className="w-5 h-5 ml-2 -mr-1 text-violet-200 hover:text-violet-100"
@@ -160,7 +147,7 @@ const ConnectButton = () => {
                                 key={connector.id}
                                 onClick={
                                  async () => {
-                                  connect({connector})
+                                 connect({ connector })
                                   closeModal()
                                   
                                  }

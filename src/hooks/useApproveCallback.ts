@@ -1,11 +1,11 @@
-import { useCallback, useMemo } from "react"
+import { useCallback, useMemo, useEffect } from "react"
 import { useAccount, useContractRead, erc20ABI, useContractWrite, usePrepareContractWrite, useWaitForTransaction} from "wagmi"
-import { NFTCONTRACT, USDC } from "../config/constants/contract";
+import { BlossomAddress, USDC } from "../config/constants/address";
 import { CHAIN_ID } from "../config/constants/network";
 import { toast } from "react-hot-toast";
 import { MaxUint256 } from "@ethersproject/constants";
-import {parseUnits, parseEther} from "ethers/lib/utils";
-
+import { BIG_TEN } from "../utils/helper";
+import BigNumber from "bignumber.js";
 
 
 export enum ApprovalState {
@@ -29,7 +29,7 @@ export function useApproveCallback(
         args:[spender,MaxUint256],
     })
     
-    const {write, isLoading, isSuccess, isError, data:result} = useContractWrite({
+    const {write , data:result} = useContractWrite({
         ...config, 
         onSuccess() {
             toast.success('Approving', {
@@ -41,36 +41,39 @@ export function useApproveCallback(
         }
     })
 
-    const waitForTransaction = useWaitForTransaction({
+    const {isLoading }= useWaitForTransaction({
         confirmations: 1,
         hash: result?.hash,
         onSuccess(){
             toast.success('Approved')
-        }
+        },
     })
 
-    console.log(waitForTransaction, "transaction")
+    
    
     const {data} = useContractRead({
         addressOrName: USDC[CHAIN_ID],
         contractInterface: erc20ABI,
         functionName:'allowance',
-        args:[address, NFTCONTRACT[CHAIN_ID]]
+        args:[address, BlossomAddress[CHAIN_ID]],
+        watch:true
     })
     
     const currentAllowance = data?.toString()
-    // console.log(parseUnits(currentAllowance, 6).lt(parseUnits(amountToApprove, 6)), amountToApprove, currentAllowance, "allowance")
+
 
     const approvalState:ApprovalState = useMemo(() => {
         if(!amountToApprove || !spender) return ApprovalState.UNKNOWN
         // we might not have enough data to know whether or not we need to approve
         if (!currentAllowance) return ApprovalState.UNKNOWN
 
-        return parseEther(currentAllowance).lt(parseEther(amountToApprove)) ?
+        return new BigNumber(currentAllowance).times(BIG_TEN.pow(6)).isLessThan(new BigNumber(amountToApprove).times(BIG_TEN.pow(6))) ?
         isLoading ? ApprovalState.PENDING : ApprovalState.NOT_APPROVED 
         : ApprovalState.APPROVED
     }, [amountToApprove, spender, currentAllowance, isLoading])
 
+    
+    
     
 
     const approve = useCallback(async ():Promise<void> => {
@@ -94,7 +97,5 @@ export function useApproveCallback(
         return write()
     },[approvalState,spender, write, amountToApprove])
    
-   
-    
     return [approvalState, approve, isLoading]
 } 
