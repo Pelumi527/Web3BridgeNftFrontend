@@ -66,7 +66,7 @@ const result = diff_miliseconds(dt2,dt1)
     completed,
   }) => {
     
-    if (!completed) {
+    if (completed) {
       // Render a completed state
       return (
         <Link className="no-underline" href="/mint">

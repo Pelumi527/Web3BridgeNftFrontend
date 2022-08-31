@@ -1,3 +1,3 @@
 import { chainId } from "wagmi";
 
-export const CHAIN_ID = chainId.goerli
+export const CHAIN_ID = chainId.mainnet
