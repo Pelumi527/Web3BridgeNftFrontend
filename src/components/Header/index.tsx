@@ -26,10 +26,8 @@ const Header = () => {
 
 
 let dt1 =  Date.now();
-let dt2 = new Date("September 01, 22 00:00:00").getTime();
-const result = diff_miliseconds(dt2,dt1)
-
-console.log(result)
+let dt2 = new Date("2022,08,30")
+const result = diff_miliseconds(dt1,dt1)
 
   const [data, setData] = useState({date: Date.now(), delay:result})
   let wantedDelay = result;
