@@ -11,7 +11,8 @@ const nextConfig = {
       },
       {
         source:'/mint',
-        destination:'/home'
+        destination:'/home',
+        permanent:false
       }
       
     ]
