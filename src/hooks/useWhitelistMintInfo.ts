@@ -30,8 +30,7 @@ const useWhiteListMinting = (isEth:boolean, amount:string) => {
     })
    
     const {write, data} = useContractWrite({
-        ...whiteListConfig,
-       
+        ...whiteListConfig
     })
 
     const ethBalance = useBalance({
