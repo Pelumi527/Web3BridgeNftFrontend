@@ -129,7 +129,7 @@ const Mint = () => {
             </div>
             <div className="flex items-center justify-between w-5/6 p-4 mx-auto md:w-2/3 lg:w-2/3">
               <p className="text-red-400">*Choose method of payment:</p>
-              <div>
+              <div className="flex items-center justify-center flex-nowrap">
                 <button className={isETH ? "px-4 py-2 bg-[#F02A2A] text-white":"px-4 py-2 bg-[#838181] text-white"}
                   onClick={() => {
                     setIsETH(true)
