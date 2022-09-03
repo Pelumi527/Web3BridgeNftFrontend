@@ -1,7 +1,7 @@
 import React from 'react'
 import { toast } from 'react-hot-toast'
 function TransactionConfirmation(hash:string) {
-    const transactionHash = `https://goerli.etherscan.io/tx/${hash}`
+    const transactionHash = `https://etherscan.io/tx/${hash}`
     return (
         toast.custom((t) => (
             <div
