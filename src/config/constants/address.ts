@@ -8,7 +8,7 @@ interface ADDRESS {
 
 export const BlossomAddress:ADDRESS = {
     [chainId.rinkeby] : '0x237F59667d93d58698ca1576C0CC7B64f3A8c53a',
-    [chainId.mainnet] : "0xA2b0d663B1b4e6acb34865F2D24907DC7Ae4A9FB",
+    [chainId.mainnet] : "0xa0f4952Ccb58d8E2053a1CD9476F7Fd421611Cea",
     [chainId.goerli]  : '0xe39f44ec8498f15E07341Ec7B3128809D9701e85' 
 }
 
